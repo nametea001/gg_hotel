@@ -72,19 +72,30 @@ final class BookingUpdater
     private function mapToBookingRow(array $data): array
     {
         $result = [];
-        if (isset($data['booking_number'])) {
-            $result['booking_number'] = (string)$data['booking_number'];
+        if (isset($data['booking_no'])) {
+            $result['booking_no'] = (string)$data['booking_no'];
         }
-        if (isset($data['booking_price'])) {
-            $result['booking_price'] = (string)$data['booking_price'];
+        if (isset($data['book_detail_id'])) {
+            $result['book_detail_id'] = (string)$data['book_detail_id'];
         }
-        if (isset($data['booking_type'])) {
-            $result['booking_type'] = (string)$data['booking_type'];
+        if (isset($data['user_id'])) {
+            $result['user_id'] = (string)$data['user_id'];
         }
-        if (isset($data['bed_type'])) {
-            $result['bed_type'] = (string)$data['bed_type'];
+        if (isset($data['room_id'])) {
+            $result['room_id'] = (string)$data['room_id'];
         }
-
+        if (isset($data['payment_id'])) {
+            $result['payment_id'] = (string)$data['payment_id'];
+        }
+        if (isset($data['deposit'])) {
+            $result['deposit'] = (string)$data['deposit'];
+        }
+        if (isset($data['status'])) {
+            $result['status'] = (string)$data['status'];
+        }
+        if (isset($data['booking_date'])) {
+            $result['booking_date'] = (string)$data['booking_date'];
+        }
         return $result;
-    }
+    }    
 }

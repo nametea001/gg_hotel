@@ -53,6 +53,7 @@ final class BookingRepository
                 'deposit',
                 'status',
                 'booking_date',
+                'bookings.created_at',
                 'room_number',
                 'room_price',
                 'first_name',

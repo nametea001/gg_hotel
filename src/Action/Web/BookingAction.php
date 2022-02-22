@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
 use Symfony\Component\HttpFoundation\Session\Session;
-
+use Cake\Chronos\Chronos;
 /**
  * Action.
  */
@@ -53,7 +53,6 @@ final class BookingAction
             $params['startDate']=date('Y-m-d',strtotime('-7 days',strtotime(date('Y-m-d'))));
             $params['endDate']=date('Y-m-d');
         }
-        
         $viewData = [
             'bookings' => $this->finder->findBookings($params),
             'user_login' => $this->session->get('user'),
