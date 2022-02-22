@@ -12,6 +12,7 @@ module.exports = {
     'layout/datatables': './templates/layout/datatables.js',
     'web/payment': './templates/web/payment.js',
     'web/room': './templates/web/room.js',
+    'web/booking': './templates/web/booking.js',
     
   },
   output: {
