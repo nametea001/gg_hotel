@@ -11,7 +11,7 @@ return function (App $app) {
     // Redirect to Swagger documentation
 
     $app->get('/home', \App\Action\HomeAction::class)->setName('home');
-    $app->get('/checkpoint', \App\Action\Web\CheckPointAction::class)->setName('checkpoint');
+    
 
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);
