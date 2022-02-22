@@ -3,7 +3,6 @@
 namespace App\Domain\Room\Repository;
 
 use App\Factory\QueryFactory;
-use App\Factory\QueryFactory2;
 use DomainException;
 use Cake\Chronos\Chronos;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -13,10 +12,9 @@ final class RoomRepository
     private $queryFactory;
     private $session;
 
-    public function __construct(Session $session, QueryFactory $queryFactory, QueryFactory2 $queryFactory2)
+    public function __construct(Session $session, QueryFactory $queryFactory)
     {
         $this->queryFactory = $queryFactory;
-        $this->queryFactory2 = $queryFactory2;
         $this->session = $session;
     }
     public function insertRoom(array $row): int
