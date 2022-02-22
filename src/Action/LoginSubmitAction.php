@@ -56,7 +56,7 @@ final class LoginSubmitAction
             $flash->set('success', 'Login successfully');
     
             // Redirect to protected page
-            $url = 'users';
+            $url = 'rooms';
         } else {
             $flash->set('error', 'Login failed!');
 

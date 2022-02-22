@@ -10,6 +10,9 @@ module.exports = {
   entry: {
     'layout/layout': './templates/layout/layout.js',
     'layout/datatables': './templates/layout/datatables.js',
+    'web/payment': './templates/web/payment.js',
+    'web/room': './templates/web/room.js',
+    
   },
   output: {
     path: path.resolve(__dirname, 'public/assets'),
