@@ -13,9 +13,13 @@ return function (App $app) {
     $app->get('/home', \App\Action\HomeAction::class)->setName('home');
     $app->get('/checkpoint', \App\Action\Web\CheckPointAction::class)->setName('checkpoint');
 
-    // $app->get('/login', \App\Action\LoginAction::class)->setName('login');
-    // $app->post('/login', \App\Action\LoginSubmitAction::class);
-    // $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');
+    $app->get('/login', \App\Action\LoginAction::class)->setName('login');
+    $app->post('/login', \App\Action\LoginSubmitAction::class);
+    $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');
+
+    $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(UserAuthMiddleware::class);
+    
+    $app->get('/payment', \App\Action\Web\PaymentAction::class)->add(UserAuthMiddleware::class);
 
     // Swagger API documentation
     $app->get('/docs/v1', \App\Action\Documentation\SwaggerUiAction::class)->setName('docs');
