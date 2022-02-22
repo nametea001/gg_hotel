@@ -1,0 +1,89 @@
+{
+    "name": "odan/slim4-skeleton",
+    "type": "project",
+    "description": "A Slim 4 skeleton",
+    "keywords": [
+        "slim-framework",
+        "skeleton",
+        "slim",
+        "slim4",
+        "apache"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "cakephp/chronos": "^2",
+        "cakephp/database": "^4",
+        "cakephp/validation": "^4.2",
+        "fig/http-message-util": "^1.1",
+        "fullpipe/twig-webpack-extension": "^4.0",
+        "monolog/monolog": "^2",
+        "odan/phinx-migrations-generator": "^5",
+        "php-di/php-di": "^6",
+        "phpoffice/phpspreadsheet": "^1.17",
+        "selective/basepath": "^2",
+        "selective/test-traits": "^0.1.0",
+        "selective/validation": "^0.12",
+        "slim/php-view": "^3.0",
+        "slim/psr7": "^1",
+        "slim/slim": "^4",
+        "slim/twig-view": "^3.2",
+        "symfony/console": "^5",
+        "symfony/http-foundation": "^5.2",
+        "symfony/polyfill-uuid": "^1.22",
+        "symfony/yaml": "^5.2",
+        "tecnickcom/tcpdf": "^6.3",
+        "tuupola/slim-basic-auth": "^3.3",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2",
+        "overtrue/phplint": "^2",
+        "phpstan/phpstan": "0.*",
+        "phpunit/phpunit": "^8 || ^9",
+        "squizlabs/php_codesniffer": "^3",
+        "symfony/filesystem": "^5",
+        "symfony/finder": "^5"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "build": "ant build",
+        "build:cc": "ant cc",
+        "check": [
+            "@lint",
+            "@cs:check",
+            "@sniffer:check",
+            "@phpstan",
+            "@test:coverage"
+        ],
+        "cs:check": "php-cs-fixer fix --dry-run --format=txt --verbose --diff --diff-format=udiff --config=.cs.php",
+        "cs:fix": "php-cs-fixer fix --config=.cs.php",
+        "lint": "phplint ./ --exclude=vendor --no-interaction --no-cache",
+        "migration:create": "phinx create -c config/phinx.php --ansi",
+        "migration:diff": "phinx-migrations generate --overwrite -c config/phinx.php --ansi",
+        "migration:migrate": "phinx migrate -c config/phinx.php --ansi -vvv",
+        "migration:dump": "php bin/console.php schema-dump",
+        "phpstan": "phpstan analyse -c phpstan.neon --no-progress --ansi",
+        "sniffer:check": "phpcs --standard=phpcs.xml",
+        "sniffer:fix": "phpcbf --standard=phpcs.xml",
+        "test": "phpunit --configuration phpunit.xml",
+        "test:coverage": "phpunit --configuration phpunit.xml --coverage-clover build/logs/clover.xml --coverage-html build/coverage",
+        "test:scrutinizer": "phpunit --configuration phpunit8.xml --do-not-cache-result --colors=always --coverage-clover build/logs/clover.xml --coverage-html build/coverage",
+        "twig:compile": "php bin/console.php compile-twig --ansi"
+    }
+}
