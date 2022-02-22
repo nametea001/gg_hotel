@@ -19,6 +19,8 @@ return function (App $app) {
 
     $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(UserAuthMiddleware::class);
     
+    $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(UserAuthMiddleware::class);
+
     $app->get('/payment', \App\Action\Web\PaymentAction::class)->add(UserAuthMiddleware::class);
 
     // Swagger API documentation
