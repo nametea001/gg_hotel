@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 01:21 PM
+-- Generation Time: Feb 22, 2022 at 04:47 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Table structure for table `bookings`
 --
 
-CREATE TABLE `booking` (
+CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
   `book_detail_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -45,10 +45,10 @@ CREATE TABLE `booking` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking_detail`
+-- Table structure for table `booking_details`
 --
 
-CREATE TABLE `booking_detail` (
+CREATE TABLE `booking_details` (
   `id` int(11) NOT NULL,
   `date_in` datetime NOT NULL,
   `date_out` datetime NOT NULL,
@@ -63,10 +63,10 @@ CREATE TABLE `booking_detail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
+-- Table structure for table `payments`
 --
 
-CREATE TABLE `payment` (
+CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
   `booking_id` int(11) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
@@ -80,10 +80,10 @@ CREATE TABLE `payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room`
+-- Table structure for table `rooms`
 --
 
-CREATE TABLE `room` (
+CREATE TABLE `rooms` (
   `id` int(11) NOT NULL,
   `room_number` varchar(10) NOT NULL,
   `room_price` decimal(10,2) NOT NULL,
@@ -94,6 +94,20 @@ CREATE TABLE `room` (
   `updated_at` datetime NOT NULL,
   `updated_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `room_number`, `room_price`, `room_type`, `bed_type`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
+(1, 'A1', '3500.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(2, 'A2', '3500.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(3, 'A3', '3700.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(4, 'A4', '3700.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(5, 'A5', '3700.00', 'STANDARD', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(6, 'A6', '3700.00', 'STANDARD', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(7, 'A7', '3800.00', 'STANDARD', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1),
+(8, 'A8', '3800.00', 'STANDARD', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +122,8 @@ CREATE TABLE `users` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `user_role_id` int(11) NOT NULL,
-  `adddress` text NOT NULL,
+  `locale` varchar(100) NOT NULL,
+  `enabled` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -119,35 +134,35 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `user_role_id`, `adddress`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
-(1, 'admin', '', 'admin', 'admin', 1, 'admin', '2022-02-22 13:19:53', 1, '2022-02-22 13:19:53', 1);
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `user_role_id`, `locale`, `enabled`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
+(1, 'admin', '$2y$10$AG.ltxsSn6jfR1wveS7jreu9eWIz.qou9sBjA3OLa3FWUnKKg/5Ta', 'admin', 'admin', 1, 'admin', 0, '2022-02-22 13:19:53', 1, '2022-02-22 13:19:53', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `booking`
+-- Indexes for table `bookings`
 --
-ALTER TABLE `booking`
+ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `booking_detail`
+-- Indexes for table `booking_details`
 --
-ALTER TABLE `booking_detail`
+ALTER TABLE `booking_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `payment`
+-- Indexes for table `payments`
 --
-ALTER TABLE `payment`
+ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `room`
+-- Indexes for table `rooms`
 --
-ALTER TABLE `room`
+ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -161,28 +176,28 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `booking`
+-- AUTO_INCREMENT for table `bookings`
 --
-ALTER TABLE `booking`
+ALTER TABLE `bookings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `booking_detail`
+-- AUTO_INCREMENT for table `booking_details`
 --
-ALTER TABLE `booking_detail`
+ALTER TABLE `booking_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `payment`
+-- AUTO_INCREMENT for table `payments`
 --
-ALTER TABLE `payment`
+ALTER TABLE `payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `room`
+-- AUTO_INCREMENT for table `rooms`
 --
-ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rooms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
