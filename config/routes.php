@@ -11,12 +11,11 @@ return function (App $app) {
     // Redirect to Swagger documentation
 
     $app->get('/home', \App\Action\HomeAction::class)->setName('home');
-    
-
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);
     $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');
 
+    /*page main*/
     $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(UserAuthMiddleware::class);
     
     $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(UserAuthMiddleware::class);
