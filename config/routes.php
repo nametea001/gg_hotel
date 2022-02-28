@@ -15,13 +15,14 @@ return function (App $app) {
     $app->post('/login', \App\Action\LoginSubmitAction::class);
     $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');
 
-    /*page main*/
+    /*page main index*/
     $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(UserAuthMiddleware::class);
     
     $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(UserAuthMiddleware::class);
 
     $app->get('/payment', \App\Action\Web\PaymentAction::class)->add(UserAuthMiddleware::class);
 
+    $app->get('/index',\App\Action\Web\indexes::class)->add(UserAuthMiddleware::class);
     // Swagger API documentation
     $app->get('/docs/v1', \App\Action\Documentation\SwaggerUiAction::class)->setName('docs');
 
