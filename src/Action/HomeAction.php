@@ -33,6 +33,7 @@ final class HomeAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->responder->withTemplate($response, 'web/home.php');
+        $viewData = [];
+        return $this->responder->withTemplate($response, 'web/home.php',$viewData);
     }
 }
