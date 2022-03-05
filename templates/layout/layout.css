@@ -9993,6 +9993,11 @@ a:focus {
 .text-gray-900 {
   color: #3a3b45 !important;
 }
+.icon-hotel{
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+}
 
 .icon-circle {
   height: 2.5rem;

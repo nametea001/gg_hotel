@@ -1,0 +1,14 @@
+{% extends "layout/layout2.twig" %}
+
+{% block css %}
+    {% webpack_entry_css 'layout/datatables' %}
+    {% webpack_entry_css 'layout/layout' %}
+{% endblock %}
+
+{% block js %}
+    {% webpack_entry_js 'layout/datatables' %}
+{% endblock %}
+
+{% block content %}
+    
+{% endblock %}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 04:47 PM
+-- Generation Time: Feb 23, 2022 at 08:35 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -29,18 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
+  `booking_no` varchar(20) NOT NULL,
   `book_detail_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `payment_id` int(11) NOT NULL,
   `deposit` int(11) NOT NULL,
-  `status` enum('RESERVED','CHECK_IN','CHECK_OUT') NOT NULL,
-  `booking_date` datetime NOT NULL,
+  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL') NOT NULL,
+  `booking_date` date NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `booking_no`, `book_detail_id`, `user_id`, `room_id`, `payment_id`, `deposit`, `status`, `booking_date`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
+(1, 'B001', 1, 1, 1, 1, 1000, 'RESERVED', '2022-02-23', '2022-02-22 19:48:38', 1, '2022-02-22 19:48:38', 1),
+(2, 'B002', 2, 1, 1, 2, 100, 'RESERVED', '2022-02-24', '2022-02-23 02:15:06', 1, '2022-02-23 02:15:06', 1);
 
 -- --------------------------------------------------------
 
@@ -179,7 +188,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `booking_details`
