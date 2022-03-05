@@ -11,6 +11,11 @@ return function (App $app) {
     // Redirect to Swagger documentation
 
     $app->get('/home', \App\Action\HomeAction::class)->setName('home');
+    $app->get('/standart_room', \App\Action\Web\StandartRoomAction::class)->setName('standart_room');
+    $app->get('/superior_room', \App\Action\Web\SuperiorRoomAction::class)->setName('superior_room');
+    $app->get('/delux_room', \App\Action\Web\DeluxRoomAction::class)->setName('delux_room');
+    $app->get('/suite_room', \App\Action\Web\SuiteRoomAction::class)->setName('suite_room');
+
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);
     $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');

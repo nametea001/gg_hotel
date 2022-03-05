@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2022 at 08:35 AM
+-- Generation Time: Mar 05, 2022 at 12:27 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -59,8 +59,8 @@ INSERT INTO `bookings` (`id`, `booking_no`, `book_detail_id`, `user_id`, `room_i
 
 CREATE TABLE `booking_details` (
   `id` int(11) NOT NULL,
-  `date_in` datetime NOT NULL,
-  `date_out` datetime NOT NULL,
+  `date_in` date NOT NULL,
+  `date_out` date NOT NULL,
   `check_in` datetime NOT NULL,
   `check_out` datetime NOT NULL,
   `created_at` datetime NOT NULL,
@@ -109,14 +109,14 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `room_number`, `room_price`, `room_type`, `bed_type`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
-(1, 'A1', '3500.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
-(2, 'A2', '3500.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
-(3, 'A3', '3700.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
-(4, 'A4', '3700.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
-(5, 'A5', '3700.00', 'STANDARD', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
-(6, 'A6', '3700.00', 'STANDARD', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
-(7, 'A7', '3800.00', 'STANDARD', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1),
-(8, 'A8', '3800.00', 'STANDARD', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1);
+(1, 'A1', '950.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(2, 'A2', '970.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(3, 'A3', '1100.00', 'SUPEIROR', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(4, 'A4', '1100.00', 'SUPEIROR', 'DOUBLE_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(5, 'A5', '1390.00', 'DELUXE', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(6, 'A6', '1390.00', 'DELUXE', 'TWIN_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(7, 'A7', '1690.00', 'SUITE', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1),
+(8, 'A8', '1500.00', 'SUITE', 'TWIN_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1);
 
 -- --------------------------------------------------------
 
