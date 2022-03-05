@@ -25,8 +25,7 @@
         "notifit-js": "^1.0.0",
         "popper.js": "^1.16.1",
         "proper": "^0.5.1",
-        "sweetalert2": "^9.17.2",
-        "animate.css":"^4.1.1"
+        "sweetalert2": "^9.17.2"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",
