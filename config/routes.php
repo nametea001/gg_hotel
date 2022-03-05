@@ -15,6 +15,9 @@ return function (App $app) {
     $app->get('/superior_room', \App\Action\Web\SuperiorRoomAction::class)->setName('superior_room');
     $app->get('/delux_room', \App\Action\Web\DeluxRoomAction::class)->setName('delux_room');
     $app->get('/suite_room', \App\Action\Web\SuiteRoomAction::class)->setName('suite_room');
+    
+    $app->get('/login_user', \App\Action\Web\LoginUserAction::class)->setName('login_user');
+    $app->get('/sign_up_user', \App\Action\Web\SignUpUserAction::class)->setName('sign_up_user');
 
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);
