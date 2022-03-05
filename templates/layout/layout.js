@@ -1,15 +1,22 @@
+// require web and css 
 require('./layout.css');
+require('../styles/style.css')
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
-
+// require plugin 
 require('bootstrap');
 require('bootstrap-select');
 require('bootstrap-datepicker');
 require('popper.js');
-require('bootstrap/dist/css/bootstrap.css');
+require('bootstrap/dist/css/bootstrap.css')
+require('bootstrap/dist/js/bootstrap.js');
+require('bootstrap/dist/js/bootstrap.min.js');
 require('bootstrap-select/dist/css/bootstrap-select.min.css');
 require('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
 require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/css/all.css');
+require('./animate.css')
+require('jquery/dist/jquery.js')
 window.Swal = require('sweetalert2');
 
 $(function() {

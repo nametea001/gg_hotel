@@ -9,10 +9,10 @@
         "watch": "npx webpack --watch"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.2",
+        "@fortawesome/fontawesome-free": "^6.0.0",
         "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
         "@popperjs/core": "^2.8.6",
-        "bootstrap": "^4.6.0",
+        "bootstrap": "^5.1.3",
         "bootstrap-datepicker": "^1.9.0",
         "bootstrap-datetimepicker": "0.0.7",
         "bootstrap-select": "^1.13.18",
@@ -25,7 +25,8 @@
         "notifit-js": "^1.0.0",
         "popper.js": "^1.16.1",
         "proper": "^0.5.1",
-        "sweetalert2": "^9.17.2"
+        "sweetalert2": "^9.17.2",
+        "animate.css":"^4.1.1"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",

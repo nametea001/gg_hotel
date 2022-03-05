@@ -6,13 +6,12 @@
 		<meta
 		http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<!-- ... -->
-
+		
 		{% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
 
 		{% webpack_entry_js 'layout/layout' %}
-		<link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
+		<link rel="icon" href="images/hotel.png" type="image/x-icon">
 	</head>
 	<body>
 		<!-- Page Wrapper -->
@@ -183,7 +182,9 @@
 
 					</nav>
 					<!-- End of Topbar -->
-					{% block content %}{% endblock %}
+					{% block content %}
+					
+					{% endblock %}
 				</div>
 				<!-- End of Main Content -->
 
