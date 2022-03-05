@@ -1,2 +1,5 @@
-@import "_Bootstrap.scss";
-@import "_carousel.scss";
+$red-text: red;
+
+.txt-red-12{
+    color: $red-text;
+}
