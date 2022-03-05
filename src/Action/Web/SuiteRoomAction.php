@@ -55,6 +55,6 @@ final class SuiteRoomAction
             $viewData =[];
         }
         
-        return $this->twig->render($response, 'web/superiorRoom.twig',$viewData);
+        return $this->twig->render($response, 'web/suiteRoom.twig',$viewData);
     }
 }
