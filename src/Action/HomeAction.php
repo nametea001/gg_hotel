@@ -35,11 +35,6 @@ final class HomeAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-<<<<<<< HEAD
-        $viewData = [];
-        return $this->responder->withTemplate($response, 'web/home.php',$viewData);
-=======
         return $this->twig->render($response, 'web/home.twig');
->>>>>>> main
     }
 }
