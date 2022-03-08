@@ -47,12 +47,15 @@ final class SuperiorRoomAction
         $params = (array)$request->getQueryParams();
         
         $user = $this->session->get('user');
-        if(isset($user[0])){
+        if ($user) {
             $viewData = [
-                'user_login' => $user ,
+                'user_login' => $user,
+                'login' => "layout/layout3.twig",
             ];
-        }else{
-            $viewData =[];
+        } else {
+            $viewData = [
+                'login' => "layout/layout2.twig",
+            ];
         }
         
         return $this->twig->render($response, 'web/superiorRoom.twig',$viewData);

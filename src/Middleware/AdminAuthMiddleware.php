@@ -10,7 +10,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Routing\RouteContext;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-final class UserAuthMiddleware implements MiddlewareInterface
+final class AdminAuthMiddleware implements MiddlewareInterface
 {
     /**
      * @var ResponseFactoryInterface
@@ -34,6 +34,17 @@ final class UserAuthMiddleware implements MiddlewareInterface
         ServerRequestInterface $request, 
         RequestHandlerInterface $handler
     ): ResponseInterface{
-        return $handler->handle($request);
+        if ($this->session->get('user')) {
+            // User is logged in
+            return $handler->handle($request);
+        }
+        
+        // User is not logged in. Redirect to login page.
+        $routeParser = RouteContext::fromRequest($request)->getRouteParser();
+        $url = $routeParser->urlFor('login');
+        
+        return $this->responseFactory->createResponse()
+            ->withStatus(302)
+            ->withHeader('Location', $url);
     }
 }

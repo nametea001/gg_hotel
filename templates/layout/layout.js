@@ -1,6 +1,6 @@
 // require web and css 
 require('./layout.css');
-require('../styles/style.css')
+require('./style.css');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 // require plugin 
