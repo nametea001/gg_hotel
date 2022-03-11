@@ -28,6 +28,8 @@ final class UserRepository
                 'password',
                 'first_name',
                 'last_name',
+                'address',
+                'email',
                 'user_role_id',
                 'locale',
                 'enabled',
@@ -53,8 +55,11 @@ final class UserRepository
             [
                 'users.id',
                 'username',
+                'password',
                 'first_name',
                 'last_name',
+                'address',
+                'email',
                 'user_role_id',
                 'locale',
                 'enabled',
@@ -85,6 +90,9 @@ final class UserRepository
                 'enabled',
             ]
         );
+        if(isset($params['username'])){
+            $query->andWhere(['username' => $params['username']]);
+        }
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }
@@ -101,9 +109,10 @@ final class UserRepository
     public function insertUser(array $row): int
     {
         $row['created_at'] = Chronos::now()->toDateTimeString();
-        $data['created_user_id'] = $this->session->get('user')["id"];
+        $userId = $this->session->get('user')["id"];
+        $row['created_user_id'] = $userId ?? "1";
         $row['updated_at'] = Chronos::now()->toDateTimeString();
-        $data['updated_user_id'] = $this->session->get('user')["id"];
+        $row['updated_user_id'] = $userId ?? "1";
 
         return (int)$this->queryFactory->newInsert('users', $row)->execute()->lastInsertId();
     }

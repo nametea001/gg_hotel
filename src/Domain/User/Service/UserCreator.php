@@ -85,8 +85,8 @@ final class UserCreator
             'email' => $data['email'],
             'first_name' => $data['first_name'] ?? null,
             'last_name' => $data['last_name'] ?? null,
+            'address' => $data['address'] ?? null,
             'user_role_id' => $data['user_role_id'] ?? UserRoleType::ROLE_USER,
-            'store_id' => $data['store_id'] ?? '1',
             'locale' => $data['locale'] ?? 'en_US',
             'enabled' => (int)($data['enabled'] ?? true),
         ];

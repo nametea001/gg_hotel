@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     'layout/layout': './templates/layout/layout.js',
     'layout/datatables': './templates/layout/datatables.js',
+    'web/singUpUser': './templates/web/singUpUser.js',
     'web/payment': './templates/web/payment.js',
     'web/room': './templates/web/room.js',
     'web/booking': './templates/web/booking.js',

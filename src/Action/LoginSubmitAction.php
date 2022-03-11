@@ -46,7 +46,7 @@ final class LoginSubmitAction
         // Get RouteParser from request to generate the urls
         $routeParser = RouteContext::fromRequest($request)->getRouteParser();
 
-        if ($user) {
+        if ($user && (int)$user['user_role_id'] == 1) {
             // Login successfully
             // Clears all session data and regenerates session ID
             $this->session->invalidate();

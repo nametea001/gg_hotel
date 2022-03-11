@@ -20,7 +20,9 @@ return function (App $app) {
     $app->get('/login_user', \App\Action\Web\LoginUserAction::class)->setName('login_user');
     $app->post('/login_user', \App\Action\LoginUserSubmitAction::class);
     $app->get('/logout_user', \App\Action\LogoutUserAction::class)->setName('logout');
-    $app->get('/sign_up_user', \App\Action\Web\SignUpUserAction::class)->setName('sign_up_user');
+
+    $app->get('/sign_up_user', \App\Action\Web\SignUpUserAction::class);
+    $app->post('/sign_up_user_submit', \App\Action\Web\SignUpUserSubmitAction::class);
 
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);

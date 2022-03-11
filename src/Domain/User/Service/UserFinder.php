@@ -35,4 +35,8 @@ final class UserFinder
     {
         return $this->repository->findUsers($params);
     }
+    public function getUserById(int $userId): array
+    {
+        return $this->repository->getUserById($userId);
+    }
 }

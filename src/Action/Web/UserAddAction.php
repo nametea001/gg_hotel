@@ -52,7 +52,7 @@ final class UserAddAction
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $this->userCreator->createUser( $data);
+        $this->userCreator->createUser($data);
 
         // Build the HTTP response
         return $this->responder->withRedirect($response,"users");

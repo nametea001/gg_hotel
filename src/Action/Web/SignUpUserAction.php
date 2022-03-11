@@ -47,7 +47,7 @@ final class SignUpUserAction
         $params = (array)$request->getQueryParams();
         
         $user = $this->session->get('user');
-        if(isset($user[0])){
+        if($user){
             $viewData = [
                 'user_login' => $user ,
             ];
