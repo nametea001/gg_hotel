@@ -1,0 +1,39 @@
+{% extends "layout/layout3.twig" %}
+
+{% block css %}
+    {% webpack_entry_css 'layout/datatables' %}
+    {% webpack_entry_css 'layout/layout' %}
+{% endblock %}
+
+{% block js %}
+    {% webpack_entry_js 'layout/datatables' %}
+        {% webpack_entry_js 'web/bookingUser' %}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container">
+    <form id="form-searchIssue" class="form-inline " action="" method="get">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <div class="form-inline" >
+                <h6>Room Type:</h6>&nbsp;&nbsp; 
+                <select class="form-control" id="roomType" name="room_type">
+                    <option value="STANDARD">STANDARD</option>
+                    <option value="SUPEIROR">SUPEIROR</option>
+                    <option value="DELUXE">DELUXE</option>
+                    <option value="SUITE">SUITE</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+        <h6>Want to booking date:</h6>&nbsp;&nbsp; 
+        <input type="text" autocomplete="off" class="form-control" id="searchIssueStartDate" name="startDate" value="{{startDate}}">&nbsp;&nbsp;To&nbsp;&nbsp; 
+        <input type="text" autocomplete="off" class="form-control" id="searchIssueEndDate" name="endDate" value="{{endDate}}">&nbsp;&nbsp;
+        <input type="hidden" name="operator" value="{{checkRoom['operator']}}">
+        <button type="submit" class="btn btn-primary" id="searchIssueBt"><i class="fas fa-search fa-lg"></i> Search</button>
+    </form>
+    {% if error == "Y"%}
+    <h1>ERROR</h1>
+    {% endif %}
+    </div>
+
+{% endblock %}

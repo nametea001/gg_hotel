@@ -24,6 +24,8 @@ return function (App $app) {
     $app->get('/sign_up_user', \App\Action\Web\SignUpUserAction::class);
     $app->post('/sign_up_user_submit', \App\Action\Web\SignUpUserSubmitAction::class);
 
+    $app->get('/user_booking', \App\Action\Web\BookingUserAction::class);
+
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);
     $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');

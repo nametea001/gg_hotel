@@ -35,11 +35,11 @@
         </div>
 		<div class="form-group">
             <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required" id="confirm_password">
-            {% if error.password == "Y" %}
-            {# <span id='message'></span> #}
+            <span id='message'></span>
+            {% if error['password'] == "Y" %}
             <span id='passError'> {{error.dpassword}}</span>
             {% endif %}
-            {% if error.password == "Y" %}
+            {% if error['username'] == "Y" %}
             <span id='passError'> xx{{error.dusername}}</span>
             {% endif %}
         </div>        

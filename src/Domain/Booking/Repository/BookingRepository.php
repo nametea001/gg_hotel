@@ -81,6 +81,40 @@ final class BookingRepository
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 
+    public function findBookingsForBooking(array $params): array
+    {
+        $query = $this->queryFactory->newSelect('bookings');
+        $query->select(
+            [
+                'bookings.id',
+                'booking_no',
+                'book_detail_id',
+                'user_id',
+                'room_id',
+                'payment_id',
+                'deposit',
+                'status',
+                'booking_date',
+                'bookings.created_at',
+                'room_number',
+                'room_price',
+            ]
+        ); 
+        $query->join([
+            'r' => [
+                'table' => 'rooms',
+                'type' => 'INNER',
+                'conditions' => 'r.id = room_id',
+            ]
+        ]);
+        
+        if (isset($params["startDate"])) {
+            $query->andWhere(['booking_date <=' => $params['endDate'], 'booking_date >=' => $params['startDate']]);
+        }
+
+        return $query->execute()->fetchAll('assoc') ?: [];
+    }
+
     public function findBookingsSigleTabel(array $params): array
     {
         $query = $this->queryFactory->newSelect('bookings');
