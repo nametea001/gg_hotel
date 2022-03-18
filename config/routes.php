@@ -24,7 +24,13 @@ return function (App $app) {
     $app->get('/sign_up_user', \App\Action\Web\SignUpUserAction::class);
     $app->post('/sign_up_user_submit', \App\Action\Web\SignUpUserSubmitAction::class);
 
-    $app->get('/user_booking', \App\Action\Web\BookingUserAction::class);
+    $app->get('/user_booking', \App\Action\Web\BookingUserAction::class)->setName('user_booking')->add(UserAuthMiddleware::class);
+    $app->post('/user_booking_submit', \App\Action\Web\BookingUserSubmitAction::class)->add(UserAuthMiddleware::class);
+    $app->get('/user_booking_history', \App\Action\Web\BookingUserHistoryAction::class)->setName('user_booking_history')->add(UserAuthMiddleware::class);
+
+    $app->get('/payment_user', \App\Action\Web\PaymentUserAction::class)->setName('payment_user')->add(UserAuthMiddleware::class);
+    $app->post('/payment_user_submit', \App\Action\Web\PaymentUserDepositSubmitAction::class)->add(UserAuthMiddleware::class);
+    $app->post('/payment_user_finish', \App\Action\Web\PaymentUserDepositSubmitAction::class)->add(UserAuthMiddleware::class);
 
     $app->get('/login', \App\Action\LoginAction::class)->setName('login');
     $app->post('/login', \App\Action\LoginSubmitAction::class);

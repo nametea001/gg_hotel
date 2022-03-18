@@ -34,7 +34,8 @@ final class AdminAuthMiddleware implements MiddlewareInterface
         ServerRequestInterface $request, 
         RequestHandlerInterface $handler
     ): ResponseInterface{
-        if ($this->session->get('user')) {
+        $user = $this->session->get('user');
+        if ((int)$user['user_role_id'] <= 2) {
             // User is logged in
             return $handler->handle($request);
         }

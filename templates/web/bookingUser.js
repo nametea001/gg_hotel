@@ -4,3 +4,28 @@ $(function () {
         format: 'yyyy-mm-dd'
     });
 });
+
+function bookingRoom(event) {
+    let item = event.currentTarget.name;
+    console.log(item);
+    var obj = JSON.parse(item);
+    $("#roomId").val(obj.id);
+    $("#roomType").val(obj.room_type);
+    $("#roomTypeShow").val(obj.room_type);
+    $("#roomNumber").text(obj.room_number); //show lot_no
+}
+
+$(document).on(
+    "click",
+    "#bookingBt",
+    (event) => {
+        let id = event.currentTarget.id;
+        switch (id) {
+            case "bookingBt":
+                bookingRoom(event);
+                break;
+            default:
+                console.log("no any events click");
+        }
+    }
+);

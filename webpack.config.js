@@ -15,6 +15,7 @@ module.exports = {
     'web/room': './templates/web/room.js',
     'web/booking': './templates/web/booking.js',
     'web/bookingUser': './templates/web/bookingUser.js',
+    'web/bookingUserHistory': './templates/web/bookingUserHistory.js',
     
   },
   output: {

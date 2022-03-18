@@ -1,0 +1,54 @@
+{% extends "layout/layout3.twig" %}
+
+{% block css %}
+    {% webpack_entry_css 'layout/datatables' %}
+    {% webpack_entry_css 'layout/layout' %}
+{% endblock %}
+
+{% block js %}
+    {# {% webpack_entry_js 'layout/datatables' %} #}
+{% endblock %}
+
+{% block content %}
+    <br>
+    {% if (notPay == "N") %}
+        <div class="d-flex justify-content-center">
+            <div>
+                <h1>จ่ายเงินแล้ว ^_^</h1>
+                <h6>room:{{booking['room_number']}}</h6>
+                <h6>Booking No:{{booking['booking_no']}}</h6>
+                <h6>Booking date:{{booking['booking_date']}}</h6>
+                <h6>date in:{{booking['date_in']}}</h6>
+                <h6>date out:{{booking['date_out']}}</h6>
+                <h6>room price:{{booking['room_price']}} /day</h6>
+                <h6>deposit: 500</h6> 
+        </div>
+        
+    {% else %}
+        <div class="d-flex justify-content-center">
+            <div>
+                <h1>จ่ายเงิน</h1>
+                <h6>room:{{booking['room_number']}}</h6>
+                <h6>Booking No:{{booking['booking_no']}}</h6>
+                <h6>Booking date:{{booking['booking_date']}}</h6>
+                <h6>date in:{{booking['date_in']}}</h6>
+                <h6>date out:{{booking['date_out']}}</h6>
+                <h6>room price:{{booking['room_price']}} /day</h6>
+                <h6>deposit: 500</h6>
+                <form class="form-inline" action="payment_user_submit" method="post"> 
+                    <input type="hidden" id="BookingId" name="payment_id" value="{{booking['payment_id']}}">
+                    <input type="hidden" id="BookingId" name="booking_id" value="{{booking['id']}}">
+                    <input type="hidden" id="deposit" name="deposit" value="500">
+                    <button type="submit" class="btn btn-success">Comfirm</button>
+                </form>
+            </div> 
+        </div>
+    {% endif %}
+    
+
+     {# เทสไอคอน
+    <h1>Icon Test</h1>
+    <i class="fa-solid fa-right-to-bracket"></i> #}
+{% endblock %}
+
+

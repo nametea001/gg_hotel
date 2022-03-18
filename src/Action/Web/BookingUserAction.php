@@ -2,7 +2,6 @@
 
 namespace App\Action\Web;
 
-use App\Domain\User\Service\UserFinder;
 use App\Domain\Room\Service\RoomFinder;
 use App\Domain\Booking\Service\BookingFinder;
 use App\Responder\Responder;
@@ -59,15 +58,13 @@ final class BookingUserAction
         if (!isset($params['startDate'])) {
             $params['startDate'] = date('Y-m-d', strtotime('+1 days', strtotime(date('Y-m-d'))));
             $params['endDate'] = null;
-        } else if ($params['endDate'] == "" || !isset($params['room_type'])) {
+        } else if ($params['endDate'] == "" || !isset($params['room_type']) || ($params['startDate'] >= $params['endDate'])) {
             $error = "Y";
         }
-        $checkRoom['select'] = "N";
-        // $checkRoom['room_type'] = $params['room_type'];
         $roomsReady = [];
+        $checkRoom = [];
         if ($error == "N" && $params['endDate'] != null) {
             $checkRoom['room_type'] = $params['room_type'];
-            $checkRoom['select'] = "N";
             $roomType['room_type'] = $checkRoom['room_type'];
             $rooms = $this->roomFinder->findRooms($roomType);
             $bookings = $this->bookingFinder->findBookingsForBooking($params);

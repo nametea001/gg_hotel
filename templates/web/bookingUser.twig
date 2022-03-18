@@ -12,12 +12,13 @@
 
 {% block content %}
     <br>
+    <h1 class="d-flex justify-content-center">Select Room</h1>
     <div class="container">
-    <form id="form-searchIssue" class="form-inline " action="" method="get">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <br>
+    <form id="form-searchIssue" class="form-inline d-flex justify-content-center" action="" method="get">
             <div class="form-inline" >
                 <h6>Room Type:</h6>&nbsp;&nbsp; 
-                <select class="form-control" name="room_type">
+                <select class="form-control" id ="roomTypeShow"name="room_type">
                     {# <option hidden value="default">Select An Option</option> #}
                     <option value="STANDARD">STANDARD</option>
                     <option value="SUPEIROR">SUPEIROR</option>
@@ -43,9 +44,9 @@
     {% if checkRoom['is_empty'] == "Y"%}
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-18">
                     <hr>
-                    <table id="my-data-table" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed">
+                    <table id="my-data-table" class="table table-striped table-bordered nowrap dataTable no-footer dtr-inline collapsed" style="width:100%">
                         <thead>
                         <tr>
                             <th>Images</th>
@@ -57,16 +58,15 @@
                         </thead>
                         <tbody>
                         {% for room in rooms %}                    
-                        <tr>
-                            <td>{{ room.image }}</td>
-                            <td>{{ room.room_number }}</td>
-                            <td>{{ room.room_price }}</td>
-                            <td>{{ room.bed_type }}</td>
-                            <td>
-                            <button type="button" id="editBt" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editroom" name="{{ room|json_encode }}"><i style="font-size:15px; width:20px;" class="fas fa-edit"></i></button>
-                            <button type="button" id="deleteBt" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteroom" name="{{ room|json_encode }}"><i style="font-size:15px; width:20px;" class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ room.image }}</td>
+                                <td>{{ room.room_number }}</td>
+                                <td>{{ room.room_price }}</td>
+                                <td>{{ room.bed_type }}</td>
+                                <td>
+                                <button type="button" id="bookingBt" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#bookingRoom" name="{{ room|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-check"></i> Reserve</button>
+                                </td>
+                            </tr>
                         {% endfor %}
                         </tbody>
                         <tfoot></tfoot>
@@ -78,4 +78,37 @@
     {% endif %}
     </div>
 
+
+ {# ปุ่มจอง #}
+<!-- Modal -->
+    <div class="modal fade" id="bookingRoom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="form-deleteLot" action="user_booking_submit" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Booking room?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">          
+                        <div class="form-group">
+                            <input type="hidden" id="roomId" name="room_id">
+                            <input type="hidden" id="roomType" name="room_type">
+                            <input type="hidden" id="dateIn" name="date_in" value="{{startDate}}">
+                            <input type="hidden" id="dateOut" name="date_out" value="{{endDate}}">
+                            <label for="Booking">Do you want to booking room: <span id="roomNumber"></span> ?</label>
+                            <label for="Booking">Date : <span id ="startDateShow">{{startDate}}</span> To <span id ="endDateShow">{{endDate}}</span> ?</label>
+                        </div>                 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Comfirm</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
+

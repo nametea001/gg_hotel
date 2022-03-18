@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Domain\Booking\Service;
+namespace App\Domain\BookingDetail\Service;
 
-use App\Domain\Booking\Repository\BookingRepository;
+use App\Domain\BookingDetail\Repository\BookingDetailRepository;
 use App\Factory\ValidationFactory;
 use Cake\Validation\Validator;
 use Selective\Validation\Exception\ValidationException;
 
-final class BookingValidator
+final class BookingDetailValidator
 {
     private $repository;
     private $validationFactory;
 
-    public function __construct(BookingRepository $repository, ValidationFactory $validationFactory)
+    public function __construct(BookingDetailRepository $repository, ValidationFactory $validationFactory)
     {
         $this->repository = $repository;
         $this->validationFactory = $validationFactory;
@@ -23,11 +23,10 @@ final class BookingValidator
         $validator = $this->validationFactory->createValidator();
 
         return $validator
-            ->notEmptyString('user_id', 'Input required')
-            ->notEmptyString('status', 'Input required')
-            ->notEmptyString('room_id', 'Input required');
+            ->notEmptyString('check_in', 'Input required')
+            ->notEmptyString('check_out', 'Input required');
     }
-    public function validateBooking(array $data): void
+    public function validateBookingDetail(array $data): void
     {
         $validator = $this->createValidator();
 
@@ -40,17 +39,19 @@ final class BookingValidator
         }
     }
 
-    public function validateBookingUpdate(string $customer_name, array $data): void
+    public function validateBookingDetailUpdate(string $customer_name, array $data): void
     {
         /*
-        if (!$this->repository->existsBookingNo($customerNo)) {
+        if (!$this->repository->existsBookingDetailNo($customerNo)) {
             throw new ValidationException(sprintf('Store not found: %s', $stocustomerNoreId));
         }
         */
-        $this->validateBooking($data);
+        $this->validateBookingDetail($data);
     }
-    public function validateBookingInsert( array $data): void
+
+    public function validateBookingDetailInsert( array $data): void
     {
-        $this->validateBooking($data);
+        $this->validateBookingDetail($data);
     }
+    
 }

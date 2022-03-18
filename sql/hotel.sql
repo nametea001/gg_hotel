@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 05:57 PM
+-- Generation Time: Mar 18, 2022 at 07:14 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -34,22 +34,13 @@ CREATE TABLE `bookings` (
   `user_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `payment_id` int(11) NOT NULL,
-  `deposit` int(11) NOT NULL,
-  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL','WAIT_PAY') COLLATE utf8mb4_unicode_ci NOT NULL,
   `booking_date` date NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`id`, `booking_no`, `book_detail_id`, `user_id`, `room_id`, `payment_id`, `deposit`, `status`, `booking_date`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
-(1, 'B001', 1, 1, 1, 1, 1000, 'RESERVED', '2022-02-23', '2022-02-22 19:48:38', 1, '2022-02-22 19:48:38', 1),
-(2, 'B002', 2, 1, 1, 2, 100, 'RESERVED', '2022-02-24', '2022-02-23 02:15:06', 1, '2022-02-23 02:15:06', 1);
 
 -- --------------------------------------------------------
 
@@ -77,9 +68,8 @@ CREATE TABLE `booking_details` (
 
 CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
-  `booking_id` int(11) NOT NULL,
+  `deposit` decimal(8,2) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `payment_type` enum('DEPOSIT','PAID') COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -190,7 +180,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `booking_details`

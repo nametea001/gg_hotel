@@ -26,6 +26,18 @@ final class BookingRepository
 
         return (int)$this->queryFactory->newInsert('bookings', $row)->execute()->lastInsertId();
     }
+
+    public function insertBookingUser(array $row): int
+    {
+        $row['booking_date'] = Chronos::now()->toDateTimeString();
+        $row['created_at'] = Chronos::now()->toDateTimeString();
+        $row['created_user_id'] = $this->session->get('user')["id"];
+        $row['updated_at'] = Chronos::now()->toDateTimeString();
+        $row['updated_user_id'] = $this->session->get('user')["id"];
+
+        return (int)$this->queryFactory->newInsert('bookings', $row)->execute()->lastInsertId();
+    }
+
     public function updateBooking(int $bookingID, array $data): void
     {
         $data['updated_at'] = Chronos::now()->toDateTimeString();
@@ -50,7 +62,6 @@ final class BookingRepository
                 'user_id',
                 'room_id',
                 'payment_id',
-                'deposit',
                 'status',
                 'booking_date',
                 'bookings.created_at',
@@ -93,7 +104,6 @@ final class BookingRepository
                 'user_id',
                 'room_id',
                 'payment_id',
-                'deposit',
                 'status',
                 'booking_date',
                 'bookings.created_at',
@@ -131,6 +141,62 @@ final class BookingRepository
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 
+    public function findBookingsForUser(array $params): array
+    {
+        $query = $this->queryFactory->newSelect('bookings');
+        $query->select(
+            [
+                'bookings.id',
+                'booking_no',
+                'book_detail_id',
+                'user_id',
+                'room_id',
+                'payment_id',
+                'status',
+                'booking_date',
+                'bookings.created_at',
+                'room_number',
+                'room_price',
+                'room_type',
+                'date_in',
+                'date_out',
+                'deposit',
+                'amount',
+            ]
+        ); 
+        $query->join([
+            'r' => [
+                'table' => 'rooms',
+                'type' => 'INNER',
+                'conditions' => 'r.id = room_id',
+            ]
+        ]);
+        $query->join([
+            'bd' => [
+                'table' => 'booking_details',
+                'type' => 'INNER',
+                'conditions' => 'bd.id = book_detail_id',
+            ]
+        ]);
+        $query->join([
+            'p' => [
+                'table' => 'payments',
+                'type' => 'INNER',
+                'conditions' => 'p.id = payment_id',
+            ]
+        ]);
+        if (isset($params["startDate"])) {
+            $query->andWhere(['date_in <=' => $params['endDate'], 'date_out >=' => $params['startDate']]);
+        }
+        if(isset($params['booking_id'])){
+            $query->andWhere(['bookings.id' => $params['booking_id']]);
+        }
+        if(isset($params['user_id'])){
+            $query->andWhere(['user_id' => $params['user_id']]);
+        }
+        return $query->execute()->fetchAll('assoc') ?: [];
+    }
+
     public function findBookingsSigleTabel(array $params): array
     {
         $query = $this->queryFactory->newSelect('bookings');
@@ -141,7 +207,6 @@ final class BookingRepository
                 'user_id',
                 'room_id',
                 'payment_id',
-                'deposit',
                 'status',
                 'booking_date',
             ]

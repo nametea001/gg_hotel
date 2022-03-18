@@ -27,10 +27,11 @@
                     <tr>
                         <th>Booking No</th>
                         <th>Room Number</th>
-                        <th>Price</th>
-                        <th>Deposit</th>
+                        <th>Room Price/Day</th>
                         <th>Reservation Name</th>
-                        <th>Date / hr:min</th>
+                        <th>Booking Date</th>
+                        <th>Date In</th>
+                        <th>Date Out</th>
                         <th>Status</th>
                         <th>Operation</th>
                     </tr>
@@ -44,9 +45,12 @@
                         <td>{{ booking.deposit }}</td>
                         <td>{{ booking.first_name }}  {{ booking.first_name }}</td>
                         {# <td>{{ booking.booking_date|date('Y-m-d H:i') }}</td> #}
-                        <td>{{ booking.booking_date  }} / {{ created_at|date('H:i') }}</td>
+                        <td>{{ booking.booking_date  }}  {{ created_at|date('H:i') }}</td>
+                        <td>{{ booking.date_in|date('Y-m-d H:i') }}</td>
+                        <td>{{ booking.date_out|date('Y-m-d H:i') }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
+                        <button type="button" id="bookingBt" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#bookingRoom" name="{{ room|json_encode }}"><i style="font-size:15px; width:20px;" class="fas fa-money-check"></i></button>
                         <button type="button" id="editBt" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBooking" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fas fa-edit"></i></button>
                         <button type="button" id="deleteBt" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteBooking" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fas fa-trash"></i></button>
                         </td>

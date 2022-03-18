@@ -29,34 +29,35 @@ final class RoomUpdater
         $this->validator->validateRoomInsert($data);
 
         // Map form data to row
-        $customerRow = $this->mapToRoomRow($data);
+        $roomRow = $this->mapToRoomRow($data);
 
         // Insert transferStore
-        $id=$this->repository->insertRoom($customerRow);
+        $id=$this->repository->insertRoom($roomRow);
 
         // Logging
         //$this->logger->info(sprintf('TransferStore updated successfully: %s', $id));
         return $id;
     }
-    public function updateRoom(int $customerId, array $data): void
+    
+    public function updateRoom(int $roomId, array $data): void
     {
         // Input validation
-        $this->validator->validateRoomUpdate($customerId, $data);
+        $this->validator->validateRoomUpdate($roomId, $data);
 
         // Map form data to row
         $storeRow = $this->mapToRoomRow($data);
 
         // Insert store
-        $this->repository->updateRoom($customerId, $storeRow);
+        $this->repository->updateRoom($roomId, $storeRow);
 
         // Logging
         //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));
     }
 
-    public function deleteRoom(int $customerId, array $data): void
+    public function deleteRoom(int $roomId, array $data): void
     {
         // Insert store
-        $this->repository->deleteRoom($customerId);
+        $this->repository->deleteRoom($roomId);
 
         // Logging
         //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));

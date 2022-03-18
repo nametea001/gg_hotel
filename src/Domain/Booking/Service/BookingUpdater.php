@@ -29,34 +29,45 @@ final class BookingUpdater
         $this->validator->validateBookingInsert($data);
 
         // Map form data to row
-        $customerRow = $this->mapToBookingRow($data);
+        $bookingRow = $this->mapToBookingRow($data);
 
-        // Insert transferStore
-        $id=$this->repository->insertBooking($customerRow);
+        $id=$this->repository->insertBooking($bookingRow);
 
-        // Logging
-        //$this->logger->info(sprintf('TransferStore updated successfully: %s', $id));
+
         return $id;
     }
-    public function updateBooking(int $customerId, array $data): void
+
+    public function insertBookingUser( array $data): int
     {
         // Input validation
-        $this->validator->validateBookingUpdate($customerId, $data);
+        $this->validator->validateBookingInsert($data);
 
         // Map form data to row
+        $bookingRow = $this->mapToBookingRow($data);
+
+        $id=$this->repository->insertBookingUser($bookingRow);
+
+
+        return $id;
+    }
+
+    public function updateBooking(int $bookingId, array $data): void
+    {
+
+        $this->validator->validateBookingUpdate($bookingId, $data);
+
+
         $storeRow = $this->mapToBookingRow($data);
 
         // Insert store
-        $this->repository->updateBooking($customerId, $storeRow);
+        $this->repository->updateBooking($bookingId, $storeRow);
 
-        // Logging
-        //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));
     }
 
-    public function deleteBooking(int $customerId, array $data): void
+    public function deleteBooking(int $bookingId, array $data): void
     {
         // Insert store
-        $this->repository->deleteBooking($customerId);
+        $this->repository->deleteBooking($bookingId);
 
         // Logging
         //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));
@@ -86,9 +97,6 @@ final class BookingUpdater
         }
         if (isset($data['payment_id'])) {
             $result['payment_id'] = (string)$data['payment_id'];
-        }
-        if (isset($data['deposit'])) {
-            $result['deposit'] = (string)$data['deposit'];
         }
         if (isset($data['status'])) {
             $result['status'] = (string)$data['status'];

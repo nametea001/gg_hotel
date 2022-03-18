@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Domain\Booking\Service;
+namespace App\Domain\Payment\Service;
 
-use App\Domain\Booking\Repository\BookingRepository;
+use App\Domain\Payment\Repository\PaymentRepository;
 use App\Factory\ValidationFactory;
 use Cake\Validation\Validator;
 use Selective\Validation\Exception\ValidationException;
 
-final class BookingValidator
+final class PaymentValidator
 {
     private $repository;
     private $validationFactory;
 
-    public function __construct(BookingRepository $repository, ValidationFactory $validationFactory)
+    public function __construct(PaymentRepository $repository, ValidationFactory $validationFactory)
     {
         $this->repository = $repository;
         $this->validationFactory = $validationFactory;
@@ -27,7 +27,7 @@ final class BookingValidator
             ->notEmptyString('status', 'Input required')
             ->notEmptyString('room_id', 'Input required');
     }
-    public function validateBooking(array $data): void
+    public function validatePayment(array $data): void
     {
         $validator = $this->createValidator();
 
@@ -40,17 +40,17 @@ final class BookingValidator
         }
     }
 
-    public function validateBookingUpdate(string $customer_name, array $data): void
+    public function validatePaymentUpdate(string $customer_name, array $data): void
     {
         /*
-        if (!$this->repository->existsBookingNo($customerNo)) {
+        if (!$this->repository->existsPaymentNo($customerNo)) {
             throw new ValidationException(sprintf('Store not found: %s', $stocustomerNoreId));
         }
         */
-        $this->validateBooking($data);
+        $this->validatePayment($data);
     }
-    public function validateBookingInsert( array $data): void
+    public function validatePaymentInsert( array $data): void
     {
-        $this->validateBooking($data);
+        $this->validatePayment($data);
     }
 }
