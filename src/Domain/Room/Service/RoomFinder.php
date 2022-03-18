@@ -20,10 +20,5 @@ final class RoomFinder
     {
         return $this->repository->findRooms($params);
     }
-
-    public function findRoomsForBooking(array $params): array
-    {
-        return $this->repository->findRoomsForBooking($params);
-    }
     
 }

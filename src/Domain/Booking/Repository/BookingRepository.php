@@ -56,6 +56,7 @@ final class BookingRepository
                 'bookings.created_at',
                 'room_number',
                 'room_price',
+                'room_type',
                 'first_name',
                 'last_name',
             ]
@@ -98,6 +99,9 @@ final class BookingRepository
                 'bookings.created_at',
                 'room_number',
                 'room_price',
+                'room_type',
+                'date_in',
+                'date_out',
             ]
         ); 
         $query->join([
@@ -107,10 +111,22 @@ final class BookingRepository
                 'conditions' => 'r.id = room_id',
             ]
         ]);
-        
-        if (isset($params["startDate"])) {
-            $query->andWhere(['booking_date <=' => $params['endDate'], 'booking_date >=' => $params['startDate']]);
+        $query->join([
+            'bd' => [
+                'table' => 'booking_details',
+                'type' => 'INNER',
+                'conditions' => 'bd.id = book_detail_id',
+            ]
+        ]);
+        if(isset($params['room_type'])){
+            $query->andWhere(['room_type' => $params['room_type']]);
         }
+        if (isset($params["startDate"])) {
+            $query->andWhere(['date_in <=' => $params['endDate'], 'date_out >=' => $params['startDate']]);
+        }
+        $query->andWhere(['status !=' => 'CANCEL']);
+        $query->andWhere(['status !=' => 'CHECK_OUT']);
+        
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }

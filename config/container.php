@@ -71,10 +71,6 @@ return [
         return new Connection($container->get('settings')['db1']);
     },
 
-    // Database connection
-    Connection2::class => function (ContainerInterface $container) {
-        return new Connection2($container->get('settings')['db2']);
-    },
 
     // PDO::class => function (ContainerInterface $container) {
     //     $db = $container->get(Connection::class);

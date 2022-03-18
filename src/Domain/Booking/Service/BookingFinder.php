@@ -21,5 +21,9 @@ final class BookingFinder
         return $this->repository->findBookings($params);
     }
     
+    public function findBookingsForBooking(array $params): array
+    {
+        return $this->repository->findBookingsForBooking($params);
+    }
   
 }

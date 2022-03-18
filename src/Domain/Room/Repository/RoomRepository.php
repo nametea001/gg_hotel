@@ -51,22 +51,9 @@ final class RoomRepository
                 'bed_type',
             ]
         );
-        return $query->execute()->fetchAll('assoc') ?: [];
-    }
-
-    public function findRoomsForBooking(array $params): array
-    {
-        $query = $this->queryFactory->newSelect('rooms');
-        $query->select(
-            [
-                'rooms.id',
-                'room_number',
-                'room_price',
-                'room_type',
-                'bed_type',
-            ]
-        );
-       
+        if(isset($params['room_type'])){
+            $query->andWhere(['room_type' => $params['room_type']]);
+        }
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 }
