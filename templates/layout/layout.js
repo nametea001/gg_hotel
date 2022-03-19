@@ -1,6 +1,7 @@
-// require web and css 
+
 require('./layout.css');
 require('./animate.css')
+require('./home.css');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 // require plugin 
@@ -15,10 +16,9 @@ require('bootstrap-select/dist/css/bootstrap-select.min.css');
 require('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/css/all.css');
-
 require('jquery/dist/jquery.js')
 window.Swal = require('sweetalert2');
-
+// require web and css 
 $(function() {
     "use strict"; // Start of use strict
   
