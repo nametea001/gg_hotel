@@ -68,12 +68,8 @@ final class PaymentUserDepositSubmitAction
         $dataBooking['status'] = "RESERVED";
         $this->bookingUpdater->updateBooking($bookingId, $dataBooking);
         $booking = $this->bookingFinder->findBookingsForUser($data);
-        $notPay = "N";
-        if ($booking[0]['status'] == "WAIT_PAY") {
-            $notPay = "Y";
-        }
         $viewData = [
-            'notPay' => $notPay,
+
             'booking_id' => $booking[0]['id'],
         ];
         return $this->responder->withRedirect($response, "payment_user", $viewData);
