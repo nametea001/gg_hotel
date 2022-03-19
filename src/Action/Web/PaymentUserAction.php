@@ -55,7 +55,7 @@ final class PaymentUserAction
         $booking = $this->bookingFidner->findBookingsForUser($getBooking);
         
         if($booking){
-            if($booking['status'] == "WAIT_PAY"){
+            if($booking[0]['status'] == "WAIT_PAY"){
                 $notPay = "Y";
             }else{
                 $notPay = "N";

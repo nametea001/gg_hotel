@@ -13,9 +13,11 @@ module.exports = {
     'web/singUpUser': './templates/web/singUpUser.js',
     'web/payment': './templates/web/payment.js',
     'web/room': './templates/web/room.js',
+    'web/home': './templates/web/home.js',
     'web/booking': './templates/web/booking.js',
     'web/bookingUser': './templates/web/bookingUser.js',
     'web/bookingUserHistory': './templates/web/bookingUserHistory.js',
+
     
   },
   output: {
