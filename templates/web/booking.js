@@ -1,37 +1,30 @@
 $(function () {
-    $('#my-data-table').DataTable({ "order": [[0, "desc"]] });
+    $('#my-data-table').DataTable({
+        "order": [[0, "desc"]],
+        "scrollX": true
+    });
     $('#searchIssueStartDate, #searchIssueEndDate').datepicker({
         format: 'yyyy-mm-dd'
     });
 });
-function editBooking(event){
-    let booking = event.currentTarget.name;
-    console.log(booking);
-    var obj = JSON.parse(booking);
-    $("#editBookingID").val(obj.id);
-    $("#editBookingCode").val(obj.booking_code);
-    $("#editBookingName").val(obj.booking_name);
+function CencelBooking(event) {
+    let item = event.currentTarget.name;
+    console.log(item);
+    var obj = JSON.parse(item);
+    $("#bookingId").val(obj.id);
+    $("#roomNumber").text(obj.room_number);
+    $("#startDateShow").text(obj.date_in);
+    $("#endDateShow").text(obj.date_out);
 }
 
-  function deleteBooking(event){
-    let booking = event.currentTarget.name;
-    console.log(booking);
-    var obj = JSON.parse(booking);
-    $("#deleteBookingID").val(obj.id);
-    $("#deleteBookingCode").text(obj.booking_code);
-    $("#deleteBookingName").text(obj.booking_name);
-}
 $(document).on(
     "click",
-    "#editBt, #deleteBt",
+    "#cencelBt",
     (event) => {
         let id = event.currentTarget.id;
         switch (id) {
-            case "editBt":
-                editBooking(event);
-                break;
-            case "deleteBt":
-                deleteBooking(event);
+            case "cencelBt":
+                CencelBooking(event);
                 break;
             default:
                 console.log("no any events click");

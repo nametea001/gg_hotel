@@ -1,8 +1,9 @@
-$(function () {
-    $('#my-data-table').DataTable({ "order": [[0, "desc"]] });
+$('#my-data-table').DataTable({
+    "order": [[0, "desc"]],
+    "scrollX": true
 });
 
-function bookingRoom(event) {
+function CencelBooking(event) {
     let item = event.currentTarget.name;
     console.log(item);
     var obj = JSON.parse(item);
@@ -19,7 +20,7 @@ $(document).on(
         let id = event.currentTarget.id;
         switch (id) {
             case "cencelBt":
-                bookingRoom(event);
+                CencelBooking(event);
                 break;
             default:
                 console.log("no any events click");

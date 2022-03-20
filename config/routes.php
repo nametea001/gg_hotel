@@ -39,6 +39,8 @@ return function (App $app) {
     $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(AdminAuthMiddleware::class);
     
     $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(AdminAuthMiddleware::class);
+    $app->get('/bookings_check_in', \App\Action\Web\BookingCheckInAction::class)->add(AdminAuthMiddleware::class);
+    $app->get('/bookings_check_out', \App\Action\Web\BookingCheckOutAction::class)->add(AdminAuthMiddleware::class);
 
     $app->get('/payment', \App\Action\Web\PaymentAction::class)->add(AdminAuthMiddleware::class);
 

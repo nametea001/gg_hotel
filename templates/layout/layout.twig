@@ -37,16 +37,27 @@
 
 				<!-- menu lot-->
 				<li class="nav-item">
+					<a class="nav-link" href="users">
+						<i class="fa-solid fa-user text-white"></i>
+						<span class="text-white">User</span>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="rooms">
 						<i class="fas fa-fw fa-bed text-white"></i>
 						<span class="text-white">Rooms</span>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="bookings">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="fas fa-fw fa-book text-white"></i>
 						<span class="text-white">Bookings</span>
 					</a>
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-light no-margin" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item text-dark" href="bookings">Bookings</a></li>
+						<li><a class="dropdown-item text-dark" href="bookings_check_in">Check in</a></li>
+						<li><a class="dropdown-item text-dark" href="bookings_check_out">Check out</a></li>
+					</ul>
 				</li>
 				<hr
 				class="sidebar-divider d-none d-md-block">
@@ -104,33 +115,7 @@
 							
 							<div class="topbar-divider d-none d-sm-block"></div>
 
-							<!-- Nav Item - User Information -->
-							{# <li class="nav-item dropdown no-arrow">
-								<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="mr-2 d-none d-lg-inline text-white-600 small">{{ user_login["username"] }}</span>
-									<img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-								</a>
-								<!-- Dropdown - User Information -->
-								<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-									<a class="dropdown-item" href="#">
-										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-										Profile
-									</a>
-									<a class="dropdown-item" href="#">
-										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-										Settings
-									</a>
-									<a class="dropdown-item" href="#">
-										<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-										Activity Log
-									</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-										<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-										Logout
-									</a>
-								</div>
-							</li> #}
+						
 
 							<li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -138,7 +123,7 @@
 									<img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                                 </a>
 								
-								<ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="navbarDropdown">
+								<ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
                                     <li>
 										<a class="dropdown-item" href="#">
 											<i class="fa-solid fa-address-card"></i>
@@ -160,6 +145,7 @@
 								</ul>
                             </li>
 
+							
 						</ul>
 
 					</nav>
