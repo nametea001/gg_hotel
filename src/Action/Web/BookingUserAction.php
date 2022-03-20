@@ -58,7 +58,12 @@ final class BookingUserAction
         if (!isset($params['startDate'])) {
             $params['startDate'] = date('Y-m-d', strtotime('+1 days', strtotime(date('Y-m-d'))));
             $params['endDate'] = null;
-        } else if ($params['endDate'] == "" || !isset($params['room_type']) || ($params['startDate'] >= $params['endDate'])) {
+        } else if (
+            ($params['endDate'] == "") ||
+            (!isset($params['room_type'])) ||
+            ($params['startDate'] >= $params['endDate']) ||
+            ($params['startDate'] < date("Y-m-d"))
+        ) {
             $error = "Y";
         }
         $roomsReady = [];
@@ -67,40 +72,26 @@ final class BookingUserAction
             $checkRoom['room_type'] = $params['room_type'];
             $roomType['room_type'] = $checkRoom['room_type'];
             $rooms = $this->roomFinder->findRooms($roomType);
-            $bookings = $this->bookingFinder->findBookingsForBooking($params);
 
-            if ($bookings) {
-                // loop booking for check room is empty
-                for ($i = 0; $i < sizeof($rooms); $i++) {
-                    for ($j = 0; $j < sizeof($bookings); $j++) {
-                        $dateIn = $bookings[$j]['date_in'];
-                        $dateOut = $bookings[$j]['date_out'];
+            foreach ($rooms as $room) {
+                $getBooking['room_id'] = $room['id'];
+                $getBooking['startDate'] = $params['startDate'];
+                $getBooking['endDate'] = $params['endDate'];
+                $bookings = $this->bookingFinder->findBookingsForBooking($getBooking);
 
-                        // if ( //Did not reserve the room on the desired date.
-                        //     ($rooms[$i]['id'] == $bookings[$j]['room_id']) &&
-                        //     (($params['startDate'] <= $dateIn) && ($params['endDate'] <= $dateIn)) ||
-                        //     (($params['startDate'] >= $dateOut) && ($dateOut >= $params['endDate']))
-                        // ) {
-                        //     array_push($roomsReady, $rooms[$i]); //if is empty push to array
-                        // }
-                        if ( //Did not reserve the room on the desired date.
-                            ($rooms[$i]['id'] != $bookings[$j]['room_id']) &&
-                            (($params['startDate'] >= $dateIn) && ($params['endDate'] <= $dateOut)) 
-                        ) {
-                            array_push($roomsReady, $rooms[$i]); //if is empty push to array
-                        }
-                    }
+                if (!$bookings) {
+                    array_push($roomsReady, $room);
                 }
-            } else {
-                $roomsReady = $rooms;
             }
+
             // ถ้ามีห้องว่าง จะเป็น Y
-            if ($roomsReady) {
-                $checkRoom['is_empty'] = "Y";
-            }else{
-                $checkRoom['is_empty'] = "N";
-            }
+        if ($roomsReady) {
+            $checkRoom['is_empty'] = "Y";
+        } else {
+            $checkRoom['is_empty'] = "N";
         }
+        }
+        
         $viewData = [
             'user_login' => $this->session->get('user'),
             'startDate' => $params['startDate'],
@@ -109,6 +100,8 @@ final class BookingUserAction
             'checkRoom' => $checkRoom,
             'error' => $error,
         ];
+
+        
 
         return $this->twig->render($response, 'web/bookingUser.twig', $viewData);
     }

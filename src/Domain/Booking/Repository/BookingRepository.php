@@ -128,6 +128,9 @@ final class BookingRepository
                 'conditions' => 'bd.id = book_detail_id',
             ]
         ]);
+        if(isset($params['room_id'])){
+            $query->andWhere(['room_id' => $params['room_id']]);
+        }
         if(isset($params['room_type'])){
             $query->andWhere(['room_type' => $params['room_type']]);
         }

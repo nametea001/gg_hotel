@@ -68,6 +68,7 @@ final class BookingUserSubmitAction
         $data = (array)$request->getParsedBody();
         $getBooking['startDate'] = $data['date_in'];
         $getBooking['endDate'] = $data['date_out'];
+        $getBooking['room_id'] = $data['room_id'];
         $booking = $this->bookingFinder->findBookingsForBooking($getBooking);
         if (!$booking) {
             $user = $this->session->get('user');
