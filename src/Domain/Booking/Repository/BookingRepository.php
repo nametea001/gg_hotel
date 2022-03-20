@@ -214,6 +214,9 @@ final class BookingRepository
                 'booking_date',
             ]
         ); 
+        if(isset($params['booking_id'])){
+            $query->andWhere(['bookings.id' => $params['booking_id']]);
+        }
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 }

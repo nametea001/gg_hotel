@@ -2,8 +2,12 @@
 
 namespace App\Action\Web;
 
+
 use App\Domain\Room\Service\RoomFinder;
 use App\Domain\Booking\Service\BookingFinder;
+use App\Domain\Booking\Service\BookingUpdater;
+use App\Domain\BookingDetail\Service\BookingDetailUpdater;
+use App\Domain\Payment\Service\PaymentUpdater;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,16 +17,18 @@ use Symfony\Component\HttpFoundation\Session\Session;
 /**
  * Action.
  */
-final class BookingUserHistoryAction
+final class BookingUserCancelAction
 {
     /**
      * @var Responder
      */
     private $responder;
     private $twig;
-    private $session;
     private $roomFinder;
+    private $bookingUpdater;
     private $bookingFinder;
+    private $bookingDetaiUpdater;
+    private $paymentUpdater;
 
     /**
      * The constructor.
@@ -34,13 +40,19 @@ final class BookingUserHistoryAction
         Session $session,
         Responder $responder,
         RoomFinder $roomFinder,
-        BookingFinder $bookingFinder
+        BookingFinder $bookingFinder,
+        BookingUpdater $bookingUpdater,
+        BookingDetailUpdater $bookingDetaiUpdater,
+        PaymentUpdater $paymentUpdater
     ) {
         $this->twig = $twig;
         $this->session = $session;
         $this->responder = $responder;
         $this->roomFinder = $roomFinder;
         $this->bookingFinder = $bookingFinder;
+        $this->bookingUpdater = $bookingUpdater;
+        $this->bookingDetaiUpdater = $bookingDetaiUpdater;
+        $this->paymentUpdater = $paymentUpdater;
     }
 
     /**
@@ -53,20 +65,14 @@ final class BookingUserHistoryAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $params = (array)$request->getQueryParams();
-        $user =  $this->session->get('user');
-        $findBooking['user_id'] = $user['id'];
-        $bookings = $this->bookingFinder->findBookingsForUser($findBooking);
-        $noHistory = "N";
-        if(!$bookings){
-            $noHistory = "Y";
+        $data = (array)$request->getParsedBody();
+        $booking = $this->bookingFinder->findBookingsSigleTabel($data);
+        if ($booking[0]['status'] == "WAIT_PAY") {
+            $bookingId = $data['booking_id'];
+            $bookingData['status'] = "CANCEL";
+            $this->bookingUpdater->updateBooking($bookingId, $bookingData);
         }
-        $viewData = [
-            'user_login' => $this->session->get('user'),
-            'bookings' => $bookings,
-            'noHistory' => $noHistory,
-        ];
 
-        return $this->twig->render($response, 'web/bookingUserHistory.twig', $viewData);
+        return $this->responder->withRedirect($response, "user_booking_history");
     }
 }

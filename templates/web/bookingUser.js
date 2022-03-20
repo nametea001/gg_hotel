@@ -12,7 +12,7 @@ function bookingRoom(event) {
     $("#roomId").val(obj.id);
     $("#roomType").val(obj.room_type);
     $("#roomTypeShow").val(obj.room_type);
-    $("#roomNumber").text(obj.room_number); //show lot_no
+    $("#roomNumber").text(obj.room_number);
 }
 
 $(document).on(

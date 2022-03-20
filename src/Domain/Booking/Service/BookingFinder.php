@@ -30,5 +30,10 @@ final class BookingFinder
     {
         return $this->repository->findBookingsForUser($params);
     }
+
+    public function findBookingsSigleTabel(array $params): array
+    {
+        return $this->repository->findBookingsSigleTabel($params);
+    }
   
 }
