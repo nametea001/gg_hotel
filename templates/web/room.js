@@ -5,19 +5,21 @@ function editRoom(event){
     let room = event.currentTarget.name;
     console.log(room);
     var obj = JSON.parse(room);
-    $("#editRoomID").val(obj.id);
-    $("#editRoomCode").val(obj.room_code);
-    $("#editRoomName").val(obj.room_name);
+    $("#editRoomId").val(obj.id);
+    $("#editRoomNumber").val(obj.room_number);
+    $("#editPrice").val(obj.room_price);
+    $("#editRoomType").val(obj.room_type);
+    $("#editBadType").val(obj.bed_type);
 }
 
   function deleteRoom(event){
     let room = event.currentTarget.name;
     console.log(room);
     var obj = JSON.parse(room);
-    $("#deleteRoomID").val(obj.id);
-    $("#deleteRoomCode").text(obj.room_code);
-    $("#deleteRoomName").text(obj.room_name);
+    $("#roomId").val(obj.id);
+    $("#deleteRoomNumber").text(obj.room_number);
 }
+
 $(document).on(
     "click",
     "#editBt, #deleteBt",

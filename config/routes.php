@@ -37,6 +37,9 @@ return function (App $app) {
     $app->get('/logout', \App\Action\LogoutAction::class)->setName('logout');
 
     $app->get('/rooms', \App\Action\Web\RoomAction::class)->add(AdminAuthMiddleware::class);
+    $app->post('/add_rooms', \App\Action\Web\RoomAddAction::class)->add(AdminAuthMiddleware::class);
+    $app->post('/edit_rooms', \App\Action\Web\RoomEditAction::class)->add(AdminAuthMiddleware::class);
+    $app->post('/delete_rooms', \App\Action\Web\RoomDeleteAction::class)->add(AdminAuthMiddleware::class);
     
     $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(AdminAuthMiddleware::class);
     $app->get('/bookings_check_in', \App\Action\Web\BookingCheckInAction::class)->add(AdminAuthMiddleware::class);

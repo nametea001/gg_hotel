@@ -50,17 +50,14 @@ final class RoomUpdater
         // Insert store
         $this->repository->updateRoom($roomId, $storeRow);
 
-        // Logging
-        //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));
+    
     }
 
-    public function deleteRoom(int $roomId, array $data): void
+    public function deleteRoom(int $roomId): void
     {
         // Insert store
         $this->repository->deleteRoom($roomId);
-
-        // Logging
-        //$this->logger->info(sprintf('Store updated successfully: %s', $storeId));
+        
     }
 
     /**
