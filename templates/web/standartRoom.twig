@@ -1,14 +1,172 @@
 {% extends login %}
 
 {% block css %}
-    {% webpack_entry_css 'layout/datatables' %}
-    {% webpack_entry_css 'layout/layout' %}
+	{% webpack_entry_css 'layout/datatables' %}
+	{% webpack_entry_css 'layout/layout' %}
 {% endblock %}
 
 {% block js %}
-    {# {% webpack_entry_js 'layout/datatables' %} #}
+	{# {% webpack_entry_js 'layout/datatables' %} #}
 {% endblock %}
 
 {% block content %}
-    <h1>STANDART</h1>
+
+	
+	{#  Standard Double #}
+    <div class="container mx-auto text-center">
+	<h1>· Standard Double / Twin · </h1>
+	</div>
+	{# carousel slide #}
+      
+	      <div class="Standardblockslide">
+        <div id="carouselLight" class="carousel carousel-fade carousel-light slide  border-0" data-bs-ride="carousel" data-autoplay="5000" style="right:auto;" >
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+
+            <div class="carousel-item active" data-bs-interval="10000" style="background-image:url(images/standartRoom1.jpg)">
+              <div class="container">
+              <div class="container mx-auto text-center">
+                <h2>Welcome to GG hotel</h2>
+                <p>New hotel in Sakonnakorn</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000" style="background-image:url(images/standartRoom2.jpg)">
+            <div>
+              <h2></h2>
+              <p></p>
+            </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000" style="background-image:url(images/standartRoom3.jpg)">
+            </div>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselLight" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselLight" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </div>
+	
+
+		
+  <div class="col align-self-center">
+  <div class="bg-white py-4 shadow-sm" >
+  <div class="container mx-auto text-center">
+    <div class="row">
+{# Free Wifi #}
+  <div class="col -1order">
+           Free Wifi
+      </div>
+{# 22m² #}
+  <div class="col 1.order-*">
+            22m²
+  </div>
+{# From 1,100 ฿ #}
+
+  <div class="col">
+        From 1,100 ฿
+  </div>
+  <div class="col 2.order-*">
+{# Double Bed #}
+        Double Bed
+  </div>
+{# 2 People #}
+  <div class="col 3.order-*">
+        2 People
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="bg-white py-4 shadow-md" >
+	<div class="row featurette">
+    
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+        width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" 
+        preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" 
+        fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        </div> 
+      </div>
+    </div>
+
+
+                      <hr class="featurette-divider">
+					{# images  #}
+				<div class="container isotope">
+                <div class="pt-30">
+                    <div class="row align-items-end gh-1 gv-1 isotope-grid" style="position: relative; height: 1000.92px;">
+                        <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item" data-filters="branding" style="position: absolute; left: 0px; top: 50px;">
+                            <a href="portfolio-single-style-1.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Watch Design" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom1.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 isotope-item" data-filters="photography" style="position: absolute; left: 450.984px; top: 50px;">
+                            <a href="portfolio-single-style-2.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Happy Moments Photoset" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom2.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item" data-filters="design" style="position: absolute; left: 900.968px; top: 50px;">
+                            <a href="portfolio-single-style-3.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Mobile App" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom3.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 isotope-item" data-filters="branding" style="position: absolute; left: 0px; top: 350.984px;">
+                            <a href="portfolio-single-style-4.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Bag Design" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom4.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 isotope-item" data-filters="branding" style="position: absolute; left: 900.968px; top: 350.984px;">
+                            <a href="portfolio-single-style-5.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Creative Branding" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom5.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item" data-filters="design" style="position: absolute; left: 450.984px; top:350.969px;">
+                            <a href="portfolio-single-style-6.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Package Design" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="images/standartRoom6.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item" data-filters="marketing" style="position: absolute; left: 0px; top: 660.953px;">
+                            <a href="portfolio-single-style-1.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Video Tutorial" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                     <img class="mw-100" src="images/standartRoom7.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 isotope-item" data-filters="design" style="position: absolute; left: 450.984px; top: 665.953px;">
+                            <a href="portfolio-single-style-2.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Identity Design" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                     <img class="mw-100" src="images/standartRoom8.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item" data-filters="design" style="position: absolute; left: 799.968px; top: 900.953px;">
+                            <a href="portfolio-single-style-3.html" class="d-block show-on-scroll show-on-scroll-ready" data-cursor-style="cursor-text" data-cursor-text="Breakfast" data-show-delay="50" data-show-distance="5" data-show-duration="500" style="transform: translateY(0px); transition-duration: 500ms; opacity: 1;">
+                                <img class="mw-100" src="assets/images/portfolio/breakfast-740-540.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="featurette-divider">
+                <div class="text-center mt-100">
+                    <a href="#" class="btn btn-circle btn-light btn-lg">more</a>
+                </div>
+                <div class="py-160 mt-n10 text-center">
+                    <h3 class="mb-60">GG_hotel<br>Send us a message and let's connect 👋</h3>
+                    <a href="contact-1.html" class="btn btn-dark btn-with-ball mt-n10">let’s work<span class="btn-ball"></span></a>
+                </div>
+            </div>
+			
+
 {% endblock %}
