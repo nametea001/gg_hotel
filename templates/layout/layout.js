@@ -2,7 +2,6 @@ require('./layout.css');
 require('./style.css');
 require('./animate.css');
 require('./home.css');
-require('./staandardRoom');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 require('bootstrap');
