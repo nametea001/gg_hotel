@@ -1,5 +1,7 @@
 {% extends login %}
 
+{% block title %}<title>HOME</title>{% endblock %}
+
 {% block css %}
     {% webpack_entry_css 'layout/datatables' %}
     {% webpack_entry_css 'layout/layout' %}
@@ -204,28 +206,20 @@
           <p>Guests can also enjoy the delicacy of many local street foods at Indy Night Market or Maharaj Pier to savor local<br/>specialties or go to the night walking street at the famous Khaosan road.<br/>Come and enjoy superior modem hotel at great connectivity with local touch.</p>
         </div>
       </div>
-      <div class="row ">
-        <div class="col d-flex justify-content-center">
-          <div class="flip-card pt-5 " tabIndex="0">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/home-card-1-1.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
-              <div class="flip-card-back">
-                <img src="images/home-card-1-2.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
+      <div class="row">
+        <div class="col d-flex">
+          <div class="flip-card" tabIndex="0">
+            <div class="flip-card-inner start-100">
+              <div class="flip-card-front" style="background-image:url(images/home-card-1-1.jpg)"></div>
+              <div class="flip-card-back" style="background-image:url(images/home-card-1-2.jpg)"></div>
             </div>
           </div>
         </div>
-        <div class="col d-flex justify-content-center ">
-          <div class="flip-card pt-5 " tabIndex="0">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/home-card-1-1.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
-              <div class="flip-card-back">
-                <img src="images/home-card-1-2.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
+        <div class="col d-flex">
+          <div class="flip-card" tabIndex="0">
+            <div class="flip-card-inner start-0">
+              <div class="flip-card-front" style="background-image:url(images/home-card-1-1.jpg)"></div>
+              <div class="flip-card-back" style="background-image:url(images/home-card-1-2.jpg)"></div>
             </div>
           </div>
         </div>

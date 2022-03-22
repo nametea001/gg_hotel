@@ -1,5 +1,5 @@
-{% extends "layout/layout2.twig" %}
-
+{% extends "layout/layout4.twig" %}
+{% block title %}<title>Login</title>{% endblock %}
 {% block css %}
     {% webpack_entry_css 'layout/datatables' %}
     {% webpack_entry_css 'layout/layout' %}
@@ -11,26 +11,24 @@
 
 {% block content %}
     <div class="login-page">
-        <form class="form-signin" method="post" action="login_user">  
-        <img class="mb-4" src="images/Loginuser-page.jpg" alt="" width="300" height="225">      
-        <div class="form-label-group">
-            {# <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> #}
-            <label for="inputEmail">Username</label>
-            <input type="text" name="username" class="form-control" placeholder="Username" required> 
-        </div>
+        <form class="form-signin bg-light" method="post" action="login_user">  
+            <div class="form-label-group">
+                {# <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> #}
+                <label for="inputEmail">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" required> 
+            </div>
 
-        <div class="form-label-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
-        </div>
+            <div class="form-label-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
 
-        <div class="checkbox mb-3">
-            <label>
-            <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        
+            <div class="checkbox mb-3">
+                <label>
+                <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
         </form>
     </div> 
 {% endblock %}
