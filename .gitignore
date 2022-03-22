@@ -64,5 +64,3 @@ public/assets/*
 !public/upload/
 public/upload/*
 
-templates/styles/*
-scss/*
