@@ -19,7 +19,6 @@ module.exports = {
     'web/bookingCheckOut': './templates/web/bookingCheckOut.js',
     
     //user 
-    'web/home': './templates/web/home.js',
     'web/bookingUser': './templates/web/bookingUser.js',
     'web/bookingUserHistory': './templates/web/bookingUserHistory.js',
     'web/singUpUser': './templates/web/singUpUser.js',

@@ -6,107 +6,103 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <style>
+            *{
+            font-family: 'Times New Roman', serif;
+            }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        {# use Flickity css #}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
 
 		{% webpack_entry_js 'layout/layout' %}
         </head>
-        <body >
-            <header class="p-3 bg-primary text-white">
+        <body class="pt-0">
+            <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary ">
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                            <icon class="fa fa-hotel" xlink:href=""></icon>
+                            <icon class="fa fa-hotel" xlink:href="home"></icon>
                         </a>
-
                         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="home" class="nav-link px-2 text-white">HOME</a></li>
                             <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ACCOMMODATIONS
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="standart_room">STANDART ROOM</a></li>
-                                    <li><a class="dropdown-item" href="superior_room">SUPERIOR ROOM</a></li>
-                                    {# <li><hr class="dropdown-divider"></li> #}
-                                    <li><a class="dropdown-item" href="delux_room">DELUX ROOM</a></li>
-                                    <li><a class="dropdown-item" href="suite_room">SUITE ROOM</a></li>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-primary no-margin" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text-white" href="standart_room">STANDART ROOM</a></li>
+                                    <li><a class="dropdown-item text-white" href="superior_room">SUPERIOR ROOM</a></li>
+                                    <li><a class="dropdown-item text-white" href="delux_room">DELUX ROOM</a></li>
+                                    <li><a class="dropdown-item text-white" href="suite_room">SUITE ROOM</a></li>
                                 </ul>
                             </li>
                             <li><a href="user_booking?room_type=STANDARD" class="nav-link px-2 text-white">BOOKING</a></li>
-                            <li><a href="#Features" class="nav-link px-2 text-white">Features</a></li>
-                            <li><a href="#Pricing" class="nav-link px-2 text-white">Pricing</a></li>
-                            <li><a href="#FAQs" class="nav-link px-2 text-white">FAQs</a></li>
-                            <li><a href="#About" class="nav-link px-2 text-white">About</a></li>
+							<li><a href="#GALLERY" class="nav-link px-2 text-white">GALLERY</a></li>
+                            <li><a href="#ATTRACTION" class="nav-link px-2 text-white">ATTRACTION</a></li>
+                            <li><a href="#FACILITIES" class="nav-link px-2 text-white">FACILITIES</a></li>
+                            <li><a href="#CONTACT" class="nav-link px-2 text-white">CONTACT</a></li>
                         </ul>
-                                        
-
-                        {# <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                        </form> #}
-
-                        <div class="text-end ">
-                            <ul
-							class="navbar-nav ml-auto ">
-
-							<!-- Nav Item - Search Dropdown (Visible Only XS) -->
-							<li class="nav-item dropdown no-arrow d-sm-none">
-								<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="fas fa-search fa-fw"></i>
-								</a>
-								<!-- Dropdown - Messages -->
-								<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-									<form class="form-inline mr-auto w-100 navbar-search">
-										<div class="input-group">
-											<input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="button">
-													<i class="fas fa-search fa-sm"></i>
-												</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</li>
-							
-							<div class="topbar-divider d-none d-sm-block"></div>
-
-							<li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-white-600 small">{{ user_login["username"] }}</span>
-									<img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-                                </a>
-								
-								<ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-                                    <li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-solid fa-address-card"></i>
-											Profile
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="user_booking_history">
-											<i class="fa-solid fa-right-to-bracket"></i>
-											Booking history
-										</a>
-									</li>
-                                    <li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-solid fa-gear"></i>
-											Settings
-										</a>
-									</li>
-                                    <li>
-										<a class="dropdown-item" href="logout">
-											<i class="fa-solid fa-arrow-right-from-bracket"></i>
-											Logout
-										</a>
-									</li>
-								</ul>
-                            </li>
-						    </ul>
+                        <div class="text-end">
+							<ul class="navbar-nav ml-auto ">
+                                <li class="nav-item dropdown no-arrow d-sm-none">
+                                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-search fa-fw"></i>
+                                    </a>
+                                    <!-- Dropdown - Messages -->
+                                    <div class="dropdown-menu dropdown-menu-right p-2 shadow me-2" aria-labelledby="searchDropdown">
+                                        <form class="form-inline mr-auto w-100 navbar-search">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="button">
+                                                        <i class="fas fa-search fa-sm"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <div class="topbar-divider d-none d-sm-block"></div>
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="mr-2 d-none d-lg-inline text-white-600 small">{{ user_login["username"] }}</span>
+                                        <img class="img-profile rounded-circle" src="img/undraw_profile.svg" width="24px" height="24px">
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fa-solid fa-address-card"></i>
+                                                Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="user_booking_history">
+                                                <i class="fa-solid fa-right-to-bracket"></i>
+                                                Booking history
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fa-solid fa-gear"></i>
+                                                Settings
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="logout_user">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
+                    </div>    
                 </div>
             </header>
             {% block js %}{% endblock %}
@@ -118,5 +114,6 @@
 						</div>
 					</div>
 			</footer>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         </body>
     </html>
