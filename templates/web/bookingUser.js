@@ -15,14 +15,26 @@ function bookingRoom(event) {
     $("#roomNumber").text(obj.room_number);
 }
 
+function searchRoom(event) {
+    let item = event.currentTarget.name;
+    console.log(item);
+    var obj = JSON.parse(item);
+    $("#searchIssueStartDate").val(obj.startDate);
+    $("#searchIssueEndDate").val(obj.endDate);
+    $("#roomTypeShow").val(obj.room_type);
+}
+
 $(document).on(
     "click",
-    "#bookingBt",
+    "#bookingBt, #searchRoomBt",
     (event) => {
         let id = event.currentTarget.id;
         switch (id) {
             case "bookingBt":
                 bookingRoom(event);
+                break;
+            case "searchRoomBt":
+                searchRoom(event);
                 break;
             default:
                 console.log("no any events click");

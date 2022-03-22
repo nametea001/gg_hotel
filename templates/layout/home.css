@@ -1,11 +1,12 @@
 /* start slider */
-.home-slider .carousel-item{
+.home-slider .carousel-item {
     height: 600px;
     background-position: center;
     background-size: cover;
 }
-.home-slider .carousel-item:before{
-    content:"";
+
+.home-slider .carousel-item:before {
+    content: "";
     position: absolute;
     Left: 0;
     top: 0;
@@ -13,86 +14,102 @@
     height: 100%;
     z-index: -1;
 }
-.home-slider .carousel-item .container{
+
+.home-slider .carousel-item .container {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.home-slider .carousel-item h2{
+
+.home-slider .carousel-item h2 {
     font-size: 80px;
-	color: #ffffff;
-	margin:0 0 10px;
-	opacity: 0;
+    color: #ffffff;
+    margin: 0 0 10px;
+    opacity: 0;
 }
-.home-slider .carousel-item p{
+
+.home-slider .carousel-item p {
     font-size: 30px;
     margin: 0;
     color: #eeeeee;
     opacity: 0;
 }
-.home-slider .carousel-item.active h2{
+
+.home-slider .carousel-item.active h2 {
     animation: fadeInLeft 0.5s ease forwards;
 }
-.home-slider .carousel-item.active p{
+
+.home-slider .carousel-item.active p {
     animation: fadeInRight 0.5s ease forwards;
 }
+
 @keyframes fadeInLeft {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(-30px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
+
 @keyframes fadeInRight {
-    0%{
+    0% {
         opacity: 0;
         transform: translateX(30px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
+
 /* end slider */
 
 /* start booking card */
-.home-booking-card{
+.home-booking-card {
     padding: 10px;
     width: 80%;
     margin: auto;
     display: flex;
 }
-.home-booking-card .item-content{
-    margin:0;
+
+.home-booking-card .item-content {
+    margin: 0;
 }
-.home-booking-card .item-content.col{
+
+.home-booking-card .item-content.col {
     width: 275px;
     margin: auto;
 }
-.home-booking-card .item-content .bg-white{
+
+.home-booking-card .item-content .bg-white {
     width: 275px;
     margin: 0 auto;
     align-items: center;
 }
-.home-booking-card .item-content img{
+
+.home-booking-card .item-content img {
     margin: auto;
     height: 195px;
     width: 275px;
     text-align: center;
     padding-top: 12px;
 }
-.home-booking-card .item-content a{
+
+.home-booking-card .item-content a {
     font-size: 20px;
     color: #222;
     text-decoration: none;
     text-align: center;
 }
-.home-booking-card .item-content a.link-room{
+
+.home-booking-card .item-content a.link-room {
     display: inline-block;
     border-bottom: 1px solid;
     text-transform: uppercase;
@@ -100,54 +117,61 @@
     font-weight: 600;
     letter-spacing: 2px;
 }
-.home-booking-card .item-text-content{
+
+.home-booking-card .item-text-content {
     margin: auto;
     width: 275px;
 }
-.home-booking-card .item-text-content .text-item-start,.text-item-center{
+
+.home-booking-card .item-text-content .text-item-start, .text-item-center {
     border-right: 1px solid #222;
 }
-.home-booking-card .item-text-content .text-item-start,.text-item-center,.text-item-end{
+
+.home-booking-card .item-text-content .text-item-start, .text-item-center, .text-item-end {
     box-sizing: border-box;
     width: 33.33%;
     padding: 0 5%;
 }
-.home-booking-card .item-text-content h2{
+
+.home-booking-card .item-text-content h2 {
     font-size: 16px;
     color: #222;
     text-decoration: none;
     text-align: center;
 }
 
-.home-booking-card .item-text-content p{
+.home-booking-card .item-text-content p {
     font-size: 9px;
     color: #222;
     text-decoration: none;
     text-align: center;
     margin: -5px 0 0;
 }
+
 /* end booking card */
 
 /* start review */
-.tourist-attractions{
+.tourist-attractions {
     background-color: #000000;
     margin: 0;
     height: 733px;
     display: block;
 }
-.tourist-attractions .item-content .text-content p{
+
+.tourist-attractions .item-content .text-content p {
     padding-top: 35px;
     font-size: 16px;
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
-.tourist-attractions .item-content h1{
+.tourist-attractions .item-content h1 {
     padding-bottom: 25px;
     font-size: 40px;
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
+
 /* Flickity  */
 .flickity-slider-img .carousel {
     background: #000000;
@@ -164,14 +188,15 @@
 
 /* end Flickity  */
 /* end review */
-.home-service{
+/* start service */
+.home-service {
     padding: 10px;
     width: 80%;
     margin: auto;
     display: block;
 }
 
-.home-service img.col{
+.home-service img.col {
     width: 520px;
     height: 450px;
     background-position: center;
@@ -179,6 +204,11 @@
     margin: auto;
 }
 
-.home-footer-content{
+/* end service */
+
+/* start footer */
+.home-footer-content {
     display: flex;
 }
+
+/* end footer */

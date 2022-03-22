@@ -15,22 +15,25 @@
     <h1 class="d-flex justify-content-center">Select Room</h1>
     <div class="container">
     <br>
-    <form id="form-searchIssue" class="form-inline d-flex justify-content-center" action="" method="get">
+    <form id="form-searchIssue" class="form-inline d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#searchDate">
             <div class="form-inline" >
-                <h6>Room Type:</h6>&nbsp;&nbsp; 
-                <select class="form-control" id ="roomTypeShow"name="room_type">
-                    {# <option hidden value="default">Select An Option</option> #}
+                <h6 id="showRoomType">Room Type:</h6>&nbsp;&nbsp; 
+                <h6>{{checkRoom['room_type' ]}}</h6>
+                {# <select class="form-control" id ="roomTypeShow"name="room_type">
+                    <option hidden value="default">Select </option>
                     <option value="STANDARD">STANDARD</option>
                     <option value="SUPEIROR">SUPEIROR</option>
                     <option value="DELUXE">DELUXE</option>
                     <option value="SUITE">SUITE</option>
-                </select>
+                </select> #}
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp; 
         <h6>Want to booking date:</h6>&nbsp;&nbsp; 
-        <input type="text" autocomplete="off" class="form-control" id="searchIssueStartDate" name="startDate" value="{{startDate}}">&nbsp;&nbsp;To&nbsp;&nbsp; 
-        <input type="text" autocomplete="off" class="form-control" id="searchIssueEndDate" name="endDate" value="{{endDate}}">&nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary" id="searchIssueBt"><i class="fas fa-search fa-lg"></i> Search</button>
+        <fieldset disabled>
+            <input type="text" autocomplete="off" class="form-control" id="showStartDate" name="startDate" value="{{startDate}}">&nbsp;&nbsp;To&nbsp;&nbsp; 
+            <input type="text" autocomplete="off" class="form-control" id="showIssueEndDate" name="endDate" value="{{endDate}}">&nbsp;&nbsp;
+        </fieldset>
+        <button type="button" class="btn btn-primary" id="searchRoomBt" name="{{ checkRoom|json_encode }}"><i class="fas fa-search fa-lg"></i> Search</button>
     </form>
     {% if error == "Y"%}
     <h1>ERROR</h1>
@@ -78,9 +81,46 @@
     {% endif %}
     </div>
 
+    <!-- serch room -->
+    <div class="modal fade" id="searchDate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="form-deleteLot" action="" method="get">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Search Room</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">          
+                        <div class="form-group">
+                            <label>Date In</label>
+                            <input type="text" autocomplete="off" class="form-control" id="searchIssueStartDate" name="startDate" value="{{startDate}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Date Out</label>
+                            <input type="text" autocomplete="off" class="form-control" id="searchIssueEndDate" name="endDate" value="{{endDate}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Room type</label>
+                            <select class="form-control" id ="roomTypeShow" name="room_type">
+                                <option value="STANDARD">STANDARD</option>
+                                <option value="SUPEIROR">SUPEIROR</option>
+                                <option value="DELUXE">DELUXE</option>
+                                <option value="SUITE">SUITE</option>
+                            </select> 
+                        </div>        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
- {# ปุ่มจอง #}
-<!-- Modal -->
+    {# ปุ่มจอง #}
+    <!-- Modal -->
     <div class="modal fade" id="payBookingRoom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -108,8 +148,6 @@
             </div>
         </div>
     </div>
-
-    
 
 {% endblock %}
 
