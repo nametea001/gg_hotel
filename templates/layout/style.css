@@ -54,11 +54,12 @@
     text-align: center;
 }
 
-.Standardblockslide .carousel-item h2 {
+.Standardblockslide .carousel-item h1 {
     font-size: 80px;
     color: #050505;
     margin: 0 0 0px;
     opacity: 0;
+    font-weight: normal;
 }
 
 .Standardblockslide .carousel-item p {
