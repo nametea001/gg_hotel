@@ -28,15 +28,15 @@
 }
 
 
-/* standardRoom */
+/* start StandartRoom */
 
-.Standardblockslide .carousel-item {
-    height: 600px;
+.StandartRoom .carousel-item {
+    height: 350px;
     background-position: center;
     background-size: cover;
 }
 
-.Standardblockslide .carousel-item:before {
+.StandartRoom .carousel-item:before {
     content: "";
     position: absolute;
     Left: 0;
@@ -46,55 +46,41 @@
     z-index: -1;
 }
 
-.Standardblockslide .carousel-item .container {
+.StandartRoom .carousel-item .container {
     position: absolute;
+    height: 350px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.Standardblockslide .carousel-item h1 {
+.StandartRoom .carousel-item h2 {
     font-size: 80px;
-    color: #050505;
-    margin: 0 0 0px;
+    color: #ffffff;
+    margin: 0 0 10px;
     opacity: 0;
-    font-weight: normal;
+    padding-top: 50px;
 }
 
-.Standardblockslide .carousel-item p {
+.StandartRoom .carousel-item p {
     font-size: 30px;
     margin: 0;
     color: #eeeeee;
     opacity: 0;
 }
 
-.Standardblockslide .carousel-item.active h5 {
+.StandartRoom .carousel-item.active h2 {
     animation: fadeInLeft 0.5s ease forwards;
 }
 
-.Standardblockslide .carousel-item.active p {
+.StandartRoom .carousel-item.active p {
     animation: fadeInRight 0.5s ease forwards;
 }
 
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
+.bg-gradient-bule {
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 
-@keyframes fadeInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
+
+/* end StandartRoom */
