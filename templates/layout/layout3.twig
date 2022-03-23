@@ -5,22 +5,23 @@
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+            {# use Flickity css #}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         <link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link rel="stylesheet" href="css/justifiedGallery.css" />
         <style>
             *{
             font-family: 'Times New Roman', serif;
             }
         </style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        {# use Flickity css #}
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
 
 		{% webpack_entry_js 'layout/layout' %}
         </head>
-        <body class="pt-0">
+        <body class="pt-0 ">
             <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary ">
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -33,11 +34,11 @@
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ACCOMMODATIONS
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-primary no-margin" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-white" href="standart_room">STANDART ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="superior_room">SUPERIOR ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="delux_room">DELUX ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="suite_room">SUITE ROOM</a></li>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-light no-margin text-dark" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item " href="standart_room">STANDART ROOM</a></li>
+                                    <li><a class="dropdown-item " href="superior_room">SUPERIOR ROOM</a></li>
+                                    <li><a class="dropdown-item " href="delux_room">DELUX ROOM</a></li>
+                                    <li><a class="dropdown-item " href="suite_room">SUITE ROOM</a></li>
                                 </ul>
                             </li>
                             <li><a href="user_booking?room_type=STANDARD" class="nav-link px-2 text-white">BOOKING</a></li>
@@ -107,7 +108,7 @@
             </header>
             {% block js %}{% endblock %}
             {% block content %}{% endblock %}
-            <footer class="mt-auto sticky-footer bg-white position-absolute top-100 start-50 translate-middle">
+            <footer class="mt-auto sticky-footer bg-white ">
 					<div class="container my-auto ">
 						<div class="copyright text-center my-auto ">
 							<span>Copyright &copy; GG Hotel </span>

@@ -1,44 +1,4 @@
-.gallery-img .containerw3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: -2.5px;
-}
 
-.gallery-img .containerw3:after {
-  content: '';
-  -webkit-box-flex: 999999999;
-  -ms-flex-positive: 999999999;
-  flex-grow: 999999999;
-  min-width: 300px;
-  height: 0;
-}
-
-.gallery-img .containerw3>* {
-  position: relative;
-  display: block;
-  height: 275px;
-  margin: 2.5px;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.gallery-img .containerw3>*>img {
-  height: 275px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  max-width: 100%;
-  min-width: 100%;
-  vertical-align: bottom;
-}
-
-.gallery-img .containerw3.containerw3-margin {
-  margin: 2.5px;
-}
 
 /* flip card */
 .flip-card {
