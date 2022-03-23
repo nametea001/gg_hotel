@@ -18,8 +18,9 @@
         </style>
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
-
+        
 		{% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
         </head>
         <body class="pt-0 ">
             <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary">
@@ -53,7 +54,6 @@
                     </div>
                 </div>
             </header>
-            {% block js %}{% endblock %}
             {% block content %}{% endblock %}
             <footer class="mt-auto sticky-footer bg-white ">
 					<div class="container my-auto ">

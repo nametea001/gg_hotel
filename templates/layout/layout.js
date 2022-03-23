@@ -4,10 +4,6 @@ require('./style.css');
 require('./animate.css');
 require('./home.css');
 require('./_gallery.css');
-// add jquery justifiedGallery css adnd js
-require('./justifiedGallery.css')
-require('justifiedGallery/dist/js/jquery.justifiedGallery.js');
-require('justifiedGallery/dist/js/jquery.justifiedGallery.min.js');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 // add bootstrap css and js

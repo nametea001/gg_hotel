@@ -20,11 +20,11 @@
 		{% block css %}{% endblock %}
 
 		{% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
         </head>
-            <section class="admin-login" style="background-image:url(images/home-card-1-1.jpg);">
-                    <div class="">{% block content %}{% endblock %}</div>
-            </section>
-            {% block js %}{% endblock %}
+        <section class="admin-login" style="background-image:url(images/home-card-1-1.jpg);">
+                <div class="">{% block content %}{% endblock %}</div>
+        </section>
         <script src="js/jquery.justifiedGallery.js"></script>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         </body>
