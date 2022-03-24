@@ -2,6 +2,8 @@ require('./layout.css');
 require('./style.css');
 require('./animate.css');
 require('./home.css');
+require('./StandartRoom-slider.css');
+
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 require('bootstrap');
