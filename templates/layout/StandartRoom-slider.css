@@ -27,7 +27,7 @@
 
 .StandartRoom-slider .carousel-item h2 {
     font-size: 80px;
-    color: #ffffff;
+    color: #0c0b0b;
     margin: 0 0 10px;
     opacity: 0;
     padding-top: 50px;
@@ -36,7 +36,7 @@
 .StandartRoom-slider .carousel-item p {
     font-size: 30px;
     margin: 0;
-    color: #eeeeee;
+    color: #0e0d0d;
     opacity: 0;
 }
 
