@@ -7,6 +7,7 @@ $(function () {
         format: 'yyyy-mm-dd'
     });
 });
+
 function CencelBooking(event) {
     let item = event.currentTarget.name;
     console.log(item);

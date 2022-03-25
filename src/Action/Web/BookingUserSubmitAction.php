@@ -75,6 +75,8 @@ final class BookingUserSubmitAction
             $dataBoking['room_id'] = $data['room_id'];
             $dataBoking['status'] = "WAIT_PAY";
             $dataBoking['user_id'] = $user['id'];
+            $dataBoking['book_detail_id'] = 0;
+            $dataBoking['payment_id'] = 0;
             $dataBoking['booking_no'] = "X" . str_pad(1, 11, "0", STR_PAD_LEFT);
             $bookingId = $this->bookingUpdater->insertBookingUser($dataBoking);
 

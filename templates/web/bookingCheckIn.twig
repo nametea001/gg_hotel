@@ -18,7 +18,7 @@
                 <button type="button" id="CheckInFromBookingNoBt" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#cencelBookingRoom" ><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-check"></i> Check in From Booking NO</button>
                 <form id="form-searchIssue" class="form-inline float-right" action="" method="get">
                   Checkin Date:&nbsp;&nbsp;
-                  <input type="text" autocomplete="off" class="form-control" id="searchCheckInDate" name="checkIn" value="{{checkIn}}">&nbsp;&nbsp;
+                  <input type="text" autocomplete="off" class="form-control" id="searchCheckInDate" name="check_in" value="{{checkIn}}">&nbsp;&nbsp;
                   <button type="submit" class="btn btn-primary" id="searchIssueBt"><i class="fas fa-search fa-lg"></i> Search</button>
                 </form>
                 <hr>
@@ -27,11 +27,13 @@
                     <tr>
                         <th>Booking No</th>
                         <th>Room Number</th>
-                        <th>Room Price/Day</th>
+                        <th>Room Price</th>
                         <th>Reservation Name</th>
                         <th>Booking Date</th>
                         <th>Date In</th>
                         <th>Date Out</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
                         <th>Deposit</th>
                         <th>Amount</th>
                         <th>Status</th>
@@ -44,17 +46,28 @@
                         <td>{{ booking.booking_no }}</td>
                         <td>{{ booking.room_number }}</td>
                         <td>{{ booking.room_price }}</td>
-                        <td>{{ booking.deposit }}</td>
                         <td>{{ booking.first_name }}  {{ booking.first_name }}</td>
                         {# <td>{{ booking.booking_date|date('Y-m-d H:i') }}</td> #}
                         <td>{{ booking.booking_date  }}  {{ created_at|date('H:i') }}</td>
-                        <td>{{ booking.date_in|date('Y-m-d H:i') }}</td>
-                        <td>{{ booking.date_out|date('Y-m-d H:i') }}</td>
+                        <td>{{ booking.date_in}}</td>
+                        <td>{{ booking.date_out}}</td>
+                        {% if  booking.check_in != null %}
+                            <td>{{ booking.check_out|date('Y-m-d H:i') }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if  booking.check_out != null %}
+                            <td>{{ booking.check_out|date('Y-m-d H:i') }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
                         <td>{{ booking.deposit }}</td>
                         <td>{{ booking.amount }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
-                            <button type="button" id="cencelBt" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cencelBookingRoom" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-xmark"></i></button>
+                            {% if booking.status == "RESERVED" %}
+                                <button type="button" id="confirmBt" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#checkIn" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-check"></i></button>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
@@ -65,5 +78,31 @@
             </div>
         </div>
       </div>
+
+    <!-- Confrim chek in-->
+    <div class="modal fade" id="checkIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="form-deleteLot" action="check_in_comfirm" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chek in ?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">          
+                        <div class="form-group">
+                            <input type="hidden" id="bookingId" name="booking_id">
+                            <input type="hidden" id="bookingDetailId" name="book_detail_id">
+                            <label for="Booking">Do you want to check in room: <span id="roomNumber"></span></label>
+                        </div>                 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

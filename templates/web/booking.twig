@@ -27,11 +27,13 @@
                     <tr>
                         <th>Booking No</th>
                         <th>Room Number</th>
-                        <th>Room Price/Day</th>
+                        <th>Room Price</th>
                         <th>Reservation Name</th>
                         <th>Booking Date</th>
                         <th>Date In</th>
                         <th>Date Out</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
                         <th>Deposit</th>
                         <th>Amount</th>
                         <th>Status</th>
@@ -44,17 +46,26 @@
                         <td>{{ booking.booking_no }}</td>
                         <td>{{ booking.room_number }}</td>
                         <td>{{ booking.room_price }}</td>
-                        <td>{{ booking.deposit }}</td>
                         <td>{{ booking.first_name }}  {{ booking.first_name }}</td>
                         {# <td>{{ booking.booking_date|date('Y-m-d H:i') }}</td> #}
                         <td>{{ booking.booking_date  }}  {{ created_at|date('H:i') }}</td>
-                        <td>{{ booking.date_in|date('Y-m-d H:i') }}</td>
-                        <td>{{ booking.date_out|date('Y-m-d H:i') }}</td>
+                        <td>{{ booking.date_in}}</td>
+                        <td>{{ booking.date_out}}</td>
+                        {% if  booking.check_in != null %}
+                            <td>{{ booking.check_out|date('Y-m-d H:i') }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% if  booking.check_out != null %}
+                            <td>{{ booking.check_out|date('Y-m-d H:i') }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
                         <td>{{ booking.deposit }}</td>
                         <td>{{ booking.amount }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
-                        {% if(booking.status == "WAIT_PAY") %}
+                        {% if((booking.status == "WAIT_PAY") or booking.status == "RESERVED") %}
                             <button type="button" id="cencelBt" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cencelBookingRoom" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-xmark"></i></button>
                         {% endif %}
                         </td>
