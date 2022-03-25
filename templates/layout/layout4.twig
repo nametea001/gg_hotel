@@ -19,8 +19,7 @@
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
 
-		{% webpack_entry_js 'layout/layout' %}
-        {% block js %}{% endblock %}
+		
         </head>
         <body class="pt-0">
             <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary">
@@ -42,7 +41,9 @@
                     <div class="col w-75 text-center text-dark m-auto">   
                         <h1 class="pt-xxl-4 text-end">GG HOTEL WELCOME</h1>
                     </div>
-                    {% block content %}{% endblock %}
+                    <div class="col w-25 pt-2">
+                        {% block content %}{% endblock %}
+                    </div>
                 </div>
             </section>
             <footer class="mt-auto sticky-footer bg-white">
@@ -53,5 +54,7 @@
 					</div>
 			</footer>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        {% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
         </body>
     </html>

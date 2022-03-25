@@ -19,8 +19,7 @@
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
 
-		{% webpack_entry_js 'layout/layout' %}
-        {% block js %}{% endblock %}
+		
         </head>
         <body class="pt-0 ">
             <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary ">
@@ -116,5 +115,7 @@
 					</div>
 			</footer>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        {% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
         </body>
     </html>

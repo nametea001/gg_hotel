@@ -1,9 +1,9 @@
 // use style my build
 require('./layout.css');
-require('./style.css');
 require('./animate.css');
 require('./home.css');
 require('./_gallery.css');
+require('./style.css');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 // add bootstrap css and js
