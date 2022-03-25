@@ -136,3 +136,9 @@
   width: 100%;
 }
 /* end layout4 */
+
+.booking{
+  height: 85vh;
+  margin: auto;
+  display: block;
+}

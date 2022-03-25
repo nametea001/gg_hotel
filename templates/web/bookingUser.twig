@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+<section class="booking">
     <br>
     <h1 class="d-flex justify-content-center">Select Room</h1>
     <div class="container">
@@ -36,11 +37,21 @@
         <button type="button" class="btn btn-primary" id="searchRoomBt" name="{{ checkRoom|json_encode }}"><i class="fas fa-search fa-lg"></i> Search</button>
     </form>
     {% if error == "Y"%}
-    <h1>ERROR</h1>
+    <div class="w-80 pt-2">
+        <div class="alert text-center text-danger" role="alert">
+        <i class="fa-solid fa-file-circle-exclamation"></i>
+        ERROR!! ข้อมูลไม่ถูกต้อง กรุณาใส่วันที่ให้ถูกต้อง.
+        </div>
+    </div>
     {% endif %}
     {# ห้องว่างไหมในวันที่ ต้องการเข้าจอง ถ้า #}
     {% if checkRoom['is_empty'] == "N"%}
-    <h1>Not Empty</h1>
+    <div class="w-80 pt-2">
+        <div class="alert text-center text-danger" role="alert">
+        <i class="fa-solid fa-file-circle-exclamation"></i>
+        NOT EMPTY!! ห้องไม่ว่าง กรุณาเลือกวันที่อื่น ที่ต้องการจะจอง.
+        </div>
+    </div>
     {% endif %}
 
     {# รายการห้องพัก  #}
@@ -148,7 +159,7 @@
             </div>
         </div>
     </div>
-
+</section>
 {% endblock %}
 
 

@@ -7,6 +7,7 @@ require('./style.css');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
 // add bootstrap css and js
+require('bootstrap-icons/font/bootstrap-icons.json');
 require('bootstrap');
 require('bootstrap-select');
 require('bootstrap-datepicker');

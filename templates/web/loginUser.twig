@@ -10,6 +10,8 @@
 {% endblock %}
 {% block title_signin %}LOGIN{% endblock %}
 {% block content %}
+<section>
+
     <div class="login-page">
         <form class="form-signin bg-light top-50 position-absolute top-50 start-50 translate-middle" method="post" action="login_user">  
             <div class="form-label-group ">
@@ -30,5 +32,7 @@
             </div>
             <button class="btn btn-lg btn-success btn-block" type="submit">Login</button>
         </form>
-    </div> 
+    </div>
+</section>
+
 {% endblock %}
