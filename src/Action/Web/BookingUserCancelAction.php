@@ -67,7 +67,7 @@ final class BookingUserCancelAction
     {
         $data = (array)$request->getParsedBody();
         $booking = $this->bookingFinder->findBookingsSigleTabel($data);
-        if ($booking[0]['status'] == "WAIT_PAY") {
+        if ($booking[0]['status'] == "WAIT_PAY" || $booking[0]['status'] == "RESERVED") {
             $bookingId = $data['booking_id'];
             $bookingData['status'] = "CANCEL";
             $this->bookingUpdater->updateBooking($bookingId, $bookingData);
