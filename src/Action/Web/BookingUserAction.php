@@ -58,6 +58,7 @@ final class BookingUserAction
         if (!isset($params['startDate'])) {
             $params['startDate'] = date('Y-m-d', strtotime('+1 days', strtotime(date('Y-m-d'))));
             $params['endDate'] = null;
+            $checkRoom['room_type'] = "Select";
         } else if (
             ($params['endDate'] == "") ||
             (!isset($params['room_type'])) ||
@@ -65,14 +66,16 @@ final class BookingUserAction
             ($params['startDate'] < date("Y-m-d"))
         ) {
             $error = "Y";
+            $checkRoom = [];
         }
         $roomsReady = [];
-        $checkRoom = [];
+
         if ($error == "N" && $params['endDate'] != null) {
             $checkRoom['room_type'] = $params['room_type'];
             $roomType['room_type'] = $checkRoom['room_type'];
             $rooms = $this->roomFinder->findRooms($roomType);
-
+            $checkRoom['startDate'] = $params['startDate'];
+            $checkRoom['endDate'] = $params['endDate'];
             foreach ($rooms as $room) {
                 $getBooking['room_id'] = $room['id'];
                 $getBooking['startDate'] = $params['startDate'];

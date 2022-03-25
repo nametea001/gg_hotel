@@ -1,0 +1,129 @@
+
+
+/* flip card */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:focus {
+    outline: 0;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner{
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  width: 300px;
+  height: 300px;
+  color: black;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.flip-card-back {
+  width: 300px;
+  height: 300px;
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+/* end flip card*/
+/*# sourceMappingURL=styles.css.map */
+
+/* start gallery style */
+.gallery {
+  height: 660px;
+  margin: auto;
+  display: block;
+}
+.gallery .img-gallery {
+  display: flex;
+  flex-wrap: warp;
+  gap: 15px;
+  justify-content: center;
+  padding: 10px;
+}
+.gallery .img-gallery .images{
+  height: 200px;
+  width: 300px;
+  border: 1px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.);
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery .img-gallery .images img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: .2s linear;
+}
+
+.gallery .img-gallery .images:hover img{
+  transform: scale(1.1);
+}
+
+.popup-img{
+  position: fixed;
+  top: 0;left: 0;
+  background:rgba(0, 0, 0, .9);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  display: none;
+}
+.popup-img span {
+  position: absolute;
+  top: 0;right: 10px;
+  font-size:60px;
+  font-weight: bolder;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+}
+.popup-img img {
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%,-50%);
+  border:5px;
+  width: 750px;
+  object-fit: cover;
+}
+@media (max-width:768px){
+  .popup-img img{
+    width: 95%;
+  }
+}
+/* end gallery style */

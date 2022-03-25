@@ -9,8 +9,9 @@ use App\Middleware\UserAuthMiddleware;
 use App\Middleware\AdminAuthMiddleware;
 
 return function (App $app) {
+    // main
+    $app->get('/', \App\Action\HomeAction::class)->setName('home')->add(UserAuthMiddleware::class);
     // Redirect to Swagger documentation
-
     $app->get('/home', \App\Action\HomeAction::class)->setName('home')->add(UserAuthMiddleware::class);
     $app->get('/standart_room', \App\Action\Web\StandartRoomAction::class)->setName('standart_room')->add(UserAuthMiddleware::class);
     $app->get('/superior_room', \App\Action\Web\SuperiorRoomAction::class)->setName('superior_room')->add(UserAuthMiddleware::class);

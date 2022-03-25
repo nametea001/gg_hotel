@@ -1,28 +1,28 @@
 <!DOCTYPE html>
     <html>
         <head>
-
+        {% block title %}{% endblock %}
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+            {# use Flickity css #}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
         <link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="css/justifiedGallery.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <style>
             *{
             font-family: 'Times New Roman', serif;
             }
         </style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        {# use Flickity css #}
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         {% webpack_entry_css 'layout/layout' %}
 		{% block css %}{% endblock %}
-
-		{% webpack_entry_js 'layout/layout' %}
+        
+		
         </head>
-        <body class="pt-0">
-            <header class="p-2 text-white shadow-lg text-start bg-primary bg-gradient">
+        <body class="pt-0 ">
+            <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary">
                 <div class="container">
                     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -34,17 +34,17 @@
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     ACCOMMODATIONS
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-primary no-margin" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item text-white" href="standart_room">STANDART ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="superior_room">SUPERIOR ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="delux_room">DELUX ROOM</a></li>
-                                    <li><a class="dropdown-item text-white" href="suite_room">SUITE ROOM</a></li>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end bg-light no-margin text-dark" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item " href="standart_room">STANDART ROOM</a></li>
+                                    <li><a class="dropdown-item " href="superior_room">SUPERIOR ROOM</a></li>
+                                    <li><a class="dropdown-item " href="delux_room">DELUX ROOM</a></li>
+                                    <li><a class="dropdown-item " href="suite_room">SUITE ROOM</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#Features" class="nav-link px-2 text-white">GALLERY</a></li>
-                            <li><a href="#Pricing" class="nav-link px-2 text-white">ATTRACTION</a></li>
-                            <li><a href="#FAQs" class="nav-link px-2 text-white">FACILITIES</a></li>
-                            <li><a href="#About" class="nav-link px-2 text-white">CONTACT</a></li>
+                            <li><a href="#GALLERY" class="nav-link px-2 text-white">GALLERY</a></li>
+                            <li><a href="#ATTRACTION" class="nav-link px-2 text-white">ATTRACTION</a></li>
+                            <li><a href="#FACILITIES" class="nav-link px-2 text-white">FACILITIES</a></li>
+                            <li><a href="#CONTACT" class="nav-link px-2 text-white">CONTACT</a></li>
                         </ul>
                         <div class="text-end">
                             <a href="login_user"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
@@ -53,7 +53,6 @@
                     </div>
                 </div>
             </header>
-            {% block js %}{% endblock %}
             {% block content %}{% endblock %}
             <footer class="mt-auto sticky-footer bg-white ">
 					<div class="container my-auto ">
@@ -62,5 +61,8 @@
 						</div>
 					</div>
 			</footer>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        {% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
         </body>
     </html>

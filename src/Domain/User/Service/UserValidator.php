@@ -50,7 +50,7 @@ final class UserValidator
             ->minLength('password', 4, 'Too short')
             ->maxLength('password', 40, 'Too long')
             ->email('email', false, 'Input required')
-            ->inList('user_role_id', [UserRoleType::ROLE_ADMIN, UserRoleType::ROLE_USER, UserRoleType::ROLE_STORE, UserRoleType::ROLE_MANAGER, UserRoleType::ROLE_STORE_MANAGER, UserRoleType::ROLE_SUPER_ADMIN, UserRoleType::ROLE_FINANCE], 'Invalid')
+            ->inList('user_role_id', [UserRoleType::ROLE_SUPER_ADMIN, UserRoleType::ROLE_USER, UserRoleType::ROLE_USER, UserRoleType::ROLE_CUSTOMER], 'Invalid')
             ->notEmptyString('locale', 'Input required')
             ->regex('locale', '/^[a-z]{2}\_[A-Z]{2}$/', 'Invalid')
             ->boolean('enabled', 'Invalid');
