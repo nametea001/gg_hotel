@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 18, 2022 at 07:14 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Host: localhost
+-- Generation Time: Mar 25, 2022 at 10:37 AM
+-- Server version: 8.0.28
+-- PHP Version: 8.1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bookings` (
-  `id` int(11) NOT NULL,
-  `booking_no` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `book_detail_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `room_id` int(11) NOT NULL,
-  `payment_id` int(11) NOT NULL,
-  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL','WAIT_PAY') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int NOT NULL,
+  `booking_no` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `book_detail_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  `room_id` int NOT NULL,
+  `payment_id` int DEFAULT NULL,
+  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL','WAIT_PAY') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `booking_date` date NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_user_id` int(11) NOT NULL,
+  `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
-  `updated_user_id` int(11) NOT NULL
+  `updated_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -49,15 +49,15 @@ CREATE TABLE `bookings` (
 --
 
 CREATE TABLE `booking_details` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `date_in` date NOT NULL,
   `date_out` date NOT NULL,
-  `check_in` datetime NOT NULL,
-  `check_out` datetime NOT NULL,
+  `check_in` datetime DEFAULT NULL,
+  `check_out` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
-  `created_user_id` int(11) NOT NULL,
+  `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
-  `updated_user_id` int(11) NOT NULL
+  `updated_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -67,13 +67,13 @@ CREATE TABLE `booking_details` (
 --
 
 CREATE TABLE `payments` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `deposit` decimal(8,2) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_user_id` int(11) NOT NULL,
+  `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
-  `updated_user_id` int(11) NOT NULL
+  `updated_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -83,15 +83,15 @@ CREATE TABLE `payments` (
 --
 
 CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL,
-  `room_number` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int NOT NULL,
+  `room_number` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `room_price` decimal(10,2) NOT NULL,
-  `room_type` enum('STANDARD','SUPEIROR','DELUXE','SUITE') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bed_type` enum('SINGLE_BEDDED','TWIN_BEDDED','DOUBLE_BEDDED','TRIPLE_BEDDED') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `room_type` enum('STANDARD','SUPEIROR','DELUXE','SUITE') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bed_type` enum('SINGLE_BEDDED','TWIN_BEDDED','DOUBLE_BEDDED','TRIPLE_BEDDED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_user_id` int(11) NOT NULL,
+  `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
-  `updated_user_id` int(11) NOT NULL
+  `updated_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -115,20 +115,20 @@ INSERT INTO `rooms` (`id`, `room_number`, `room_price`, `room_type`, `bed_type`,
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `first_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_role_id` int(11) NOT NULL,
-  `locale` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `enabled` tinyint(4) NOT NULL,
+  `id` int NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_role_id` int NOT NULL,
+  `locale` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_user_id` int(11) NOT NULL,
+  `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
-  `updated_user_id` int(11) NOT NULL
+  `updated_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -180,31 +180,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `booking_details`
 --
 ALTER TABLE `booking_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
