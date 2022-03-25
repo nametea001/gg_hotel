@@ -1,8 +1,9 @@
 {% extends login %}
 
+{% block title %}<title>HOME</title>{% endblock %}
+
 {% block css %}
     {% webpack_entry_css 'layout/datatables' %}
-    {% webpack_entry_css 'layout/layout' %}
     {% webpack_entry_css 'layout/layout' %}
 {% endblock %}
 
@@ -204,28 +205,20 @@
           <p>Guests can also enjoy the delicacy of many local street foods at Indy Night Market or Maharaj Pier to savor local<br/>specialties or go to the night walking street at the famous Khaosan road.<br/>Come and enjoy superior modem hotel at great connectivity with local touch.</p>
         </div>
       </div>
-      <div class="row ">
-        <div class="col d-flex justify-content-center">
-          <div class="flip-card pt-5 " tabIndex="0">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/home-card-1-1.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
-              <div class="flip-card-back">
-                <img src="images/home-card-1-2.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
+      <div class="row">
+        <div class="col d-flex">
+          <div class="flip-card" tabIndex="0">
+            <div class="flip-card-inner start-100">
+              <div class="flip-card-front" style="background-image:url(images/home-card-1-1.jpg)"></div>
+              <div class="flip-card-back" style="background-image:url(images/home-card-1-2.jpg)"></div>
             </div>
           </div>
         </div>
-        <div class="col d-flex justify-content-center ">
-          <div class="flip-card pt-5 " tabIndex="0">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/home-card-1-1.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
-              <div class="flip-card-back">
-                <img src="images/home-card-1-2.jpg" alt="Albert Einstein" width="300px" height="300px">
-              </div>
+        <div class="col d-flex">
+          <div class="flip-card" tabIndex="0">
+            <div class="flip-card-inner start-0">
+              <div class="flip-card-front" style="background-image:url(images/home-card-1-1.jpg)"></div>
+              <div class="flip-card-back" style="background-image:url(images/home-card-1-2.jpg)"></div>
             </div>
           </div>
         </div>
@@ -237,7 +230,7 @@
   {# start footer #}
     <div class="home-footer">
       <div class="home-footer-content">
-        <div class="map-content pt-5 pb-5 bg-white pd-0 w-100">
+        <div class="map-content pt-5 bg-white pd-0 w-100">
           <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1904.7976390041158!2d104.11369536093842!3d17.286804531102877!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313c8fd8ffd1d801%3A0x876415f7aa427b31!2z4Lit4LmI4Liy4LiH4Liq4LiB4Lil4LiZ4LiE4Lij!5e0!3m2!1sth!2sth!4v1647927768684!5m2!1sth!2sth" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
       </div>

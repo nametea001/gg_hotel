@@ -8,7 +8,9 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
+    // layout
     'layout/layout': './templates/layout/layout.js',
+    'layout/gallery': './templates/layout/_gallery.js',
     'layout/datatables': './templates/layout/datatables.js',
     //admin
     'web/payment': './templates/web/payment.js',
@@ -22,8 +24,6 @@ module.exports = {
     'web/bookingUser': './templates/web/bookingUser.js',
     'web/bookingUserHistory': './templates/web/bookingUserHistory.js',
     'web/singUpUser': './templates/web/singUpUser.js',
-
-    
   },
   output: {
     path: path.resolve(__dirname, 'public/assets'),

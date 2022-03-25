@@ -1,5 +1,5 @@
-{% extends "layout/layout2.twig" %}
-
+{% extends "layout/layout4.twig" %}
+{% block title %}<title>Signup</title>{% endblock %}
 {% block css %}
     {% webpack_entry_css 'layout/datatables' %}
     {% webpack_entry_css 'layout/layout' %}
@@ -10,8 +10,10 @@
     {% webpack_entry_js 'web/singUpUser' %}
 {% endblock %}
 
+{% block title_signin %}SIGNUP{% endblock %}
+
 {% block content %}
-    <div class="form-signin">
+    <div class="form-signin bg-light">
         <form action="sign_up_user_submit" method="post">
             <h2>Register</h2>
             <p class="hint-text">Create your account. It's free and only takes a minute.</p>

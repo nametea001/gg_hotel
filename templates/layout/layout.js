@@ -1,4 +1,4 @@
-
+// use style my build
 require('./layout.css');
 require('./style.css');
 require('./animate.css');
@@ -6,6 +6,7 @@ require('./home.css');
 require('./_gallery.css');
 window.jQuery = require('jquery');
 window.$ = window.jQuery;
+// add bootstrap css and js
 require('bootstrap');
 require('bootstrap-select');
 require('bootstrap-datepicker');
@@ -15,6 +16,8 @@ require('bootstrap/dist/js/bootstrap.js');
 require('bootstrap/dist/js/bootstrap.min.js');
 require('bootstrap-select/dist/css/bootstrap-select.min.css');
 require('bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css');
+// add fortawesome css 
+require('@fortawesome/fontawesome-free-webfonts/css/fontawesome.css');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 window.Swal = require('sweetalert2');
 // require web and css 

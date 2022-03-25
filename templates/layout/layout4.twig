@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        {% block title %}{% endblock %}
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+            {# use Flickity css #}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link rel="stylesheet" href="css/justifiedGallery.css" />
+        <style>
+            *{
+            font-family: 'Times New Roman', serif;
+            }
+        </style>
+        {% webpack_entry_css 'layout/layout' %}
+		{% block css %}{% endblock %}
+
+		{% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
+        </head>
+        <body class="pt-0">
+            <header class="p-2 text-white shadow-lg text-start bg-gradient bg-primary">
+                <div class="hlo4 row container m-auto pt-lg-2 pb-lg-2 ">
+                    <div class="hdt4 col text-start pl-5">
+                        <a href="home" class="px-2 text-white text-decoration-none">
+                            <icon class="fa fa-hotel pr-1 " xlink:href="home"></icon>
+                            GG HOTEL 
+                        </a>
+                        <a class="px-2 text-white text-decoration-none">
+                            {% block title_signin %}{% endblock %}
+                        </a>
+                    </div>
+                    <div class="hdt4 col text-end text-white pl-5 text-decoration-none">SUPPORT?</div>
+                </div>
+            </header>
+            <section class="sec-signup pt-xxl-5 pb-xxl-5" style="background-image:url(images/home-card-1-1.jpg);">
+                <div class="row h-100">
+                    <div class="col w-75 text-center text-dark m-auto">   
+                        <h1 class="pt-xxl-4 text-end">GG HOTEL WELCOME</h1>
+                    </div>
+                    {% block content %}{% endblock %}
+                </div>
+            </section>
+            <footer class="mt-auto sticky-footer bg-white">
+					<div class="container my-auto ">
+						<div class="copyright text-center my-auto ">
+							<span>Copyright &copy; GG Hotel </span>
+						</div>
+					</div>
+			</footer>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        </body>
+    </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        {% block title %}{% endblock %}
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+            {# use Flickity css #}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <link rel="icon" href="images/nihon-seiki.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <style>
+            *{
+            font-family: 'Times New Roman', serif;
+            }
+        </style>
+        <link rel="stylesheet" href="css/justifiedGallery.css" />
+        {% webpack_entry_css 'layout/layout' %}
+		{% block css %}{% endblock %}
+
+		{% webpack_entry_js 'layout/layout' %}
+        {% block js %}{% endblock %}
+        </head>
+        <section class="admin-login" style="background-image:url(images/home-card-1-1.jpg);">
+                <div class="">{% block content %}{% endblock %}</div>
+        </section>
+        <script src="js/jquery.justifiedGallery.js"></script>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        </body>
+    </html>
