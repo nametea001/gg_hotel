@@ -9,5 +9,109 @@
 {% endblock %}
 
 {% block content %}
+  <section class="suproom">
+  {#}start superiorRoom {#}
 
+    {#}start superiorRoom-slide {#}
+      <div class="superiorRoom-slider">
+          <div id="carouselLight" class="carousel carousel-fade carousel-light slide  border-0" data-bs-ride="carousel" data-autoplay="5000" style="right:auto;" >
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselLight" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000" style="background-image:url(images/SuperiorRoom/Superior-Room.jpg)">
+                <div class="container pt-5">
+                  <h2>· SuperiorRoom Double / Twin ·</h2>
+                  <p>New hotel in Sakonnakorn</p>
+                </div>
+              </div>
+              <div class="carousel-item " data-bs-interval="5000" style="background-image:url(images/SuperiorRoom/Superior-Room5.jpg)">
+                <div class="container pt-5">
+                    <h2>Can you book Now!</h2>
+                    <p>GG HOTEL Happy to serve you!</p>
+                  </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000" style="background-image:url(images/SuperiorRoom/Superior-Room1-2-3.jpg)">
+              <div class="container pt-5">
+                    <h2>Contact us at LINE</h2>
+                    <p>LINE ID @GG_HOTEL</p>
+                  </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselLight" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselLight" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    {#}end superiorRoom-slide {#}
+
+    {# start pview room #}
+      <div class="col align-self-center">
+        <div class="bg-white py-4 shadow-sm" >
+          <div class="container mx-auto text-center">
+            <div class="row">
+              <div class="col -1order">Free Wifi</div>
+              <div class="col 1.order-*">22m²</div>
+              <div class="col">From 1,100 ฿</div>
+              <div class="col 2.order-*">Double Bed</div>
+              <div class="col 3.order-*">2 People</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {# end pview room #}
+    {# start contact #}
+      <div class="superior-contact">
+        <div class="bg-white py-4 shadow-md container" >
+          <div class="row featurette pl-lg-5 pr-lg-5">
+              <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">รายละเอียดห้องพัก</h2>
+                <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+              </div>
+              <div class="col-12 col-sm-6 col-sm-6 col-lg-4 isotope-item">
+                <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+                width="500" height="500" src="images/SuperiorRoom/Superior-Room.jpg" role="img" aria-label="Placeholder: 500x500" 
+                preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" 
+                fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em"></text></img>
+              </div> 
+          </div>
+        </div>
+      </div>
+    {# end contact #}
+    <hr class="featurette-divider">
+    {# start gallery images #}
+      <div class="gallery">
+          <div class="img-gallery">
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room-1.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room1-2-3.jpg" alt=""></div>
+          </div>
+          <div class="img-gallery">
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room-1.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room1-2-3.jpg" alt=""></div>
+          </div>
+          <div class="img-gallery">
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room-1.jpg" alt=""></div>
+            <div class="images"><img src="images/SuperiorRoom/Superior-Room1-2-3.jpg" alt=""></div>
+          </div>
+          <div class="popup-img">
+            <span>&times;</span>
+            <img src="images/SuperiorRoom/Superior-Room1-2-3.jpg" alt="">
+          </div>
+      {% webpack_entry_js 'layout/gallery' %}
+      </div>
+    {# end gallery #}
+    <hr class="featurette-divider"> 
+  {#}end superiorRoom {#}  
+  </section>
 {% endblock %}
