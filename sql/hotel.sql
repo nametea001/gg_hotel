@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2022 at 10:37 AM
+-- Generation Time: Apr 02, 2022 at 03:31 PM
 -- Server version: 8.0.28
 -- PHP Version: 8.1.3
 
@@ -88,6 +88,7 @@ CREATE TABLE `rooms` (
   `room_price` decimal(10,2) NOT NULL,
   `room_type` enum('STANDARD','SUPEIROR','DELUXE','SUITE') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `bed_type` enum('SINGLE_BEDDED','TWIN_BEDDED','DOUBLE_BEDDED','TRIPLE_BEDDED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -98,15 +99,15 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `room_number`, `room_price`, `room_type`, `bed_type`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
-(1, 'A1', '950.00', 'STANDARD', 'SINGLE_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
-(2, 'A2', '970.00', 'STANDARD', 'TWIN_BEDDED', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
-(3, 'A3', '1100.00', 'SUPEIROR', 'TWIN_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
-(4, 'A4', '1100.00', 'SUPEIROR', 'DOUBLE_BEDDED', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
-(5, 'A5', '1390.00', 'DELUXE', 'DOUBLE_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
-(6, 'A6', '1390.00', 'DELUXE', 'TWIN_BEDDED', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
-(7, 'A7', '1690.00', 'SUITE', 'TRIPLE_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1),
-(8, 'A8', '1500.00', 'SUITE', 'TWIN_BEDDED', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1);
+INSERT INTO `rooms` (`id`, `room_number`, `room_price`, `room_type`, `bed_type`, `image`, `created_at`, `created_user_id`, `updated_at`, `updated_user_id`) VALUES
+(1, 'A1', '950.00', 'STANDARD', 'SINGLE_BEDDED', 'DeluxeRoom/Deluxe1.jpg', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(2, 'A2', '970.00', 'STANDARD', 'TWIN_BEDDED', '', '2022-02-22 16:22:59', 1, '2022-02-22 16:22:59', 1),
+(3, 'A3', '1100.00', 'SUPEIROR', 'TWIN_BEDDED', '', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(4, 'A4', '1100.00', 'SUPEIROR', 'DOUBLE_BEDDED', '', '2022-02-22 16:44:19', 1, '2022-02-22 16:44:19', 1),
+(5, 'A5', '1390.00', 'DELUXE', 'DOUBLE_BEDDED', '', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(6, 'A6', '1390.00', 'DELUXE', 'TWIN_BEDDED', '', '2022-02-22 16:45:13', 1, '2022-02-22 16:45:13', 1),
+(7, 'A7', '1690.00', 'SUITE', 'TRIPLE_BEDDED', '', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1),
+(8, 'A8', '1500.00', 'SUITE', 'TWIN_BEDDED', '', '2022-02-22 16:46:15', 1, '2022-02-22 16:46:15', 1);
 
 -- --------------------------------------------------------
 
