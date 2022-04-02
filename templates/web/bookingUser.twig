@@ -73,7 +73,7 @@
                         <tbody>
                         {% for room in rooms %}                    
                             <tr>
-                                <td>{{ room.image }}</td>
+                                <td><img src="images/{{room.image}}" alt="room" style="width:300px;height:200px;"></td>
                                 <td>{{ room.room_number }}</td>
                                 <td>{{ room.room_price }}</td>
                                 <td>{{ room.bed_type }}</td>

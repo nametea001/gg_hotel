@@ -49,6 +49,7 @@ final class RoomRepository
                 'room_price',
                 'room_type',
                 'bed_type',
+                'image',
             ]
         );
         if(isset($params['room_type'])){
