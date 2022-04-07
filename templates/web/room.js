@@ -1,7 +1,7 @@
-$(function() {
+$(function () {
     $('#my-data-table').DataTable();
 });
-function editRoom(event){
+function editRoom(event) {
     let room = event.currentTarget.name;
     console.log(room);
     var obj = JSON.parse(room);
@@ -12,7 +12,7 @@ function editRoom(event){
     $("#editBadType").val(obj.bed_type);
 }
 
-  function deleteRoom(event){
+function deleteRoom(event) {
     let room = event.currentTarget.name;
     console.log(room);
     var obj = JSON.parse(room);

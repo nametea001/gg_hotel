@@ -53,14 +53,20 @@ final class PaymentUserAction
         $params = (array)$request->getQueryParams();
         $getBooking['booking_id'] = $params['booking_id'];
         $booking = $this->bookingFidner->findBookingsForUser($getBooking);
-        
-        if($booking){
-            if($booking[0]['status'] == "WAIT_PAY"){
-                $notPay = "Y";
-            }else{
-                $notPay = "N";
+
+
+        if ($booking) {
+            if ($booking[0]['status'] == "WAIT_PAY") {
+                $notPay[0] = "Y";
+                $notPay[1] = "N";
+            } else if ($booking[0]['status'] == "WAIT_RESERVED") {
+                $notPay[0] = "Y";
+                $notPay[1] = "Y";
+            } else {
+                $notPay[0] = "N";
+                $notPay[1] = "N";
             }
-    
+
             $viewData = [
                 'user_login' => $this->session->get('user'),
                 'login' => "layout/layout3.twig",
@@ -69,11 +75,10 @@ final class PaymentUserAction
                 'endDate' => $booking[0]['date_out'],
                 'notPay' => $notPay,
             ];
-    
+
             return $this->twig->render($response, 'web/paymentUser.twig', $viewData);
-        }else{
+        } else {
             return $this->responder->withRedirect($response, "user_booking");
         }
-        
     }
 }

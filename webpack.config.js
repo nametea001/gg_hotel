@@ -24,6 +24,7 @@ module.exports = {
     'web/bookingUser': './templates/web/bookingUser.js',
     'web/bookingUserHistory': './templates/web/bookingUserHistory.js',
     'web/singUpUser': './templates/web/singUpUser.js',
+    'web/paymentUser': './templates/web/paymentUser.js',
   },
   output: {
     path: path.resolve(__dirname, 'public/assets'),

@@ -63,7 +63,7 @@
                             <td>{{ booking.status }}</td>
                             <td>
                             {% if ((booking.status == "WAIT_PAY") or (booking.status == "RESERVED")) %}
-                                {% if (booking.status == "WAIT_PAY") %}
+                                {% if (booking.status == "WAIT_PAY" or booking.status == "WAIT_RESERVED") %}
                                     <a href="payment_user?booking_id={{booking['id']}}"><button type="button" id="bookingBt" class="btn btn-success btn-sm"><i style="font-size:15px; width:20px;" class="fa-solid fa-money-check"></i></button></a>
                                 {% endif %}
                                     <button type="button" id="cencelBt" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cencelBookingRoom" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-xmark"></i></button>

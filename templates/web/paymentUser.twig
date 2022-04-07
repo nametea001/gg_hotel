@@ -6,14 +6,14 @@
 {% endblock %}
 
 {% block js %}
-    {# {% webpack_entry_js 'layout/datatables' %} #}
+    {% webpack_entry_js 'web/paymentUser' %}
 {% endblock %}
 
 {% block content %}
 <section>
 
     <br>
-    {% if (notPay == "N") %}
+    {% if (notPay[0] == "N") %}
         <div class="d-flex justify-content-center">
             <div>
                 <h1>จ่ายเงินแล้ว ^_^</h1>
@@ -29,7 +29,11 @@
     {% else %}
         <div class="d-flex justify-content-center">
             <div>
+            {% if (notPay[1] == "N" ) %}
                 <h1>ต้องจ่ายเงิน</h1>
+            {% else %}
+                <h1>รออนุมัติ</h1>
+            {% endif %}
                 <h6>room:{{booking['room_number']}}</h6>
                 <h6>Booking No:{{booking['booking_no']}}</h6>
                 <h6>Booking date:{{booking['booking_date']}}</h6>
@@ -37,14 +41,28 @@
                 <h6>date out:{{booking['date_out']}}</h6>
                 <h6>room price:{{booking['room_price']}} /day</h6>
                 <h6>deposit: 500</h6>
-                <form class="form-inline" action="payment_user_submit" method="post"> 
+                
+                {% if (notPay[1] == "N" ) %}
+                <form class="form-inline"action="payment_user_submit" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="BookingId" name="payment_id" value="{{booking['payment_id']}}">
                     <input type="hidden" id="BookingId" name="booking_id" value="{{booking['id']}}">
-                    <input type="hidden" id="deposit" name="deposit" value="500">
-                    <button type="submit" class="btn btn-success">Comfirm</button>
+                    <input type="hidden" id="deposit" name="deposit" value="500">            
+                    <div class="mb-4">
+                        <br>
+                        <input class="form-control" type="file" id="imgUpload" name="my_file">
+                    </div>
+                    &nbsp;&nbsp;
+                    <div>
+                        <button type="submit" class="btn btn-success">Comfirm</button>
+                    </div>
+                    {% endif %}
                 </form>
+                <div class="display-image" id="display_image"></div>
+                
+
             </div> 
         </div>
+        
     {% endif %}
     
 

@@ -60,16 +60,16 @@ final class PaymentUserDepositSubmitAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = (array)$request->getParsedBody();
+        $filse = $request->getUploadedFiles();
         $paymentId = $data['payment_id'];
         $dataPayment['deposit'] = $data['deposit'];
         $this->updater->updatePayment($paymentId, $dataPayment);
 
         $bookingId = $data['booking_id'];
-        $dataBooking['status'] = "RESERVED";
-        $this->bookingUpdater->updateBooking($bookingId, $dataBooking);
+        $dataBooking['status'] = "WAIT_RESERVED";
+        // $this->bookingUpdater->updateBooking($bookingId, $dataBooking);
         $booking = $this->bookingFinder->findBookingsForUser($data);
         $viewData = [
-
             'booking_id' => $booking[0]['id'],
         ];
         return $this->responder->withRedirect($response, "payment_user", $viewData);

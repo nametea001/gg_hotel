@@ -142,3 +142,13 @@
   margin: auto;
   display: block;
 }
+
+/* display_image */
+.display_image{
+  width: 200px;
+  height: 400px;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+}
+
