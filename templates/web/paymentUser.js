@@ -3,10 +3,11 @@ $(document).on('change', '#imgUpload', function (event) {
   console.log(files[0]);
 
   var output = document.getElementById('output');
-  output.src = URL.createObjectURL(event.target.files[0]);
-  output.onload = function () {
-    URL.revokeObjectURL(output.src) // free memory
-  }
-
+    output.src = URL.createObjectURL(files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+    document.getElementById("output").className += "display_image";
 });
+
 

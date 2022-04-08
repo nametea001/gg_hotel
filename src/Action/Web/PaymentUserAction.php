@@ -59,7 +59,7 @@ final class PaymentUserAction
             if ($booking[0]['status'] == "WAIT_PAY") {
                 $notPay[0] = "Y";
                 $notPay[1] = "N";
-            } else if ($booking[0]['status'] == "WAIT_RESERVED") {
+            } else if ($booking[0]['status'] == "WAIT_APPROVE") {
                 $notPay[0] = "Y";
                 $notPay[1] = "Y";
             } else {

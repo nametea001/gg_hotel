@@ -67,7 +67,10 @@
                         <td>{{ booking.amount }}</td>
                         <td>{{ booking.status }}</td>
                         <td>
-                        {% if((booking.status == "WAIT_PAY") or booking.status == "RESERVED") %}
+                        {% if (booking.status == "WAIT_APPROVE") %}
+                            <button type="button" id="approveBt" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#approve" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-align-left"></i></button>
+                        {% endif %}
+                        {% if((booking.status == "WAIT_PAY") or booking.status == "RESERVED" or booking.status == "WAIT_APPROVE") %}
                             <button type="button" id="cencelBt" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cencelBookingRoom" name="{{ booking|json_encode }}"><i style="font-size:15px; width:20px;" class="fa-solid fa-circle-xmark"></i></button>
                         {% endif %}
                         </td>
@@ -80,9 +83,43 @@
             </div>
         </div>
       </div>
+</section>
 
+    
 
-      
+  <!-- approve -->
+    <div class="modal fade" id="approve" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="form-deleteLot" action="bookings_approve" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Approve ?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">          
+                        <div class="form-group">
+                            <input type="hidden" id="bookingId" name="booking_id">
+                            <label for="Booking">Do you want to approve booking no: <span id="approveRoomNumber">xxx</span></label>
+                        </div>
+                        <div class="form-group">
+                        <select class="form-select form-select-sm" name="select" aria-label=".form-select-sm example" >
+                            <option value="approve">Approve</option>
+                            <option value="not_approve">Not Approve</option>
+                        </select>
+                        </div>
+                        <div class="center">
+                            <img class="display_image" id="imgPayment"src="" alt="paymetn" style="width:200px;hight:600px;">
+                        </div>            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
   {# ปุ่ม cancel #}
     <!-- Modal -->
     <div class="modal fade" id="cencelBookingRoom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -97,9 +134,11 @@
                     <div class="modal-body">          
                         <div class="form-group">
                             <input type="hidden" id="bookingId" name="booking_id">
-                            <label for="Booking">Do you want to cancel room: <span id="roomNumber"></span></label>
-                            <label for="Booking">Date : <span id ="startDateShow">xxx1</span> To <span id ="endDateShow">xxx2</span> ?</label>
+                            <label for="Booking">Do you want to cancel booking: <span id="cancelRoomNumber"> xxx</span></label>
                         </div>                 
+                        <div>
+                            <label for="Booking">Date : <span id ="startDateShow">xxx1</span> To <span id ="endDateShow">xxx2</span> ?</label>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">Yes</button>
@@ -109,6 +148,5 @@
             </div>
         </div>
     </div>
-</section>
 
 {% endblock %}

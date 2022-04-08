@@ -45,6 +45,8 @@ return function (App $app) {
     $app->get('/bookings', \App\Action\Web\BookingAction::class)->add(AdminAuthMiddleware::class);
     $app->get('/bookings_check_in', \App\Action\Web\BookingCheckInAction::class)->add(AdminAuthMiddleware::class);
     $app->get('/bookings_check_out', \App\Action\Web\BookingCheckOutAction::class)->add(AdminAuthMiddleware::class);
+    $app->post('/bookings_approve', \App\Action\Web\BookingApproveAction::class)->add(AdminAuthMiddleware::class);
+
 
     $app->post('/check_in_comfirm', \App\Action\Web\ChekInConfirmAction::class)->add(AdminAuthMiddleware::class);
     $app->post('/check_out_comfirm', \App\Action\Web\ChekOutConfirmAction::class)->add(AdminAuthMiddleware::class);

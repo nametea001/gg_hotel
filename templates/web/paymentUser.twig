@@ -44,8 +44,9 @@
                 
                 {% if (notPay[1] == "N" ) %}
                 <form class="form-inline"action="payment_user_submit" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="BookingId" name="payment_id" value="{{booking['payment_id']}}">
+                    <input type="hidden" id="paymenId" name="payment_id" value="{{booking['payment_id']}}">
                     <input type="hidden" id="BookingId" name="booking_id" value="{{booking['id']}}">
+                    <input type="hidden" id="BookingNO" name="booking_no" value="{{booking['booking_no']}}">
                     <input type="hidden" id="deposit" name="deposit" value="500">            
                     <div class="mb-4">
                         <br>
@@ -57,7 +58,7 @@
                     </div>
                     {% endif %}
                 </form>
-                <div class="display-image" id="display_image"></div>
+                <img class="" id="output">
                 
 
             </div> 

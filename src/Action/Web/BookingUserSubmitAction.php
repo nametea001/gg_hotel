@@ -86,6 +86,7 @@ final class BookingUserSubmitAction
 
             $dataPayment['deposit'] = 0;
             $dataPayment['amount'] = 0;
+            $dataPayment['image_deposit'] = "null.jpg";
             $paymentId = $this->paymentUpdater->insertPayment($dataPayment);
             $dataBoking2['booking_no'] = "B" . str_pad($bookingId, 11, "0", STR_PAD_LEFT);
             $dataBoking2['book_detail_id'] = $bookingDetailId;

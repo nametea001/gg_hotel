@@ -143,12 +143,19 @@
   display: block;
 }
 
-/* display_image */
 .display_image{
   width: 200px;
-  height: 400px;
+  height: 300px;
   border: 1px solid black;
-  background-position: center;
-  background-size: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

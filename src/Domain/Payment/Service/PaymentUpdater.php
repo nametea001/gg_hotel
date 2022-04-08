@@ -19,11 +19,11 @@ final class PaymentUpdater
         $this->repository = $repository;
         $this->validator = $validator;
         //$this->logger = $loggerFactory
-            //->addFileHandler('store_updater.log')
-            //->createInstance();
+        //->addFileHandler('store_updater.log')
+        //->createInstance();
     }
 
-    public function insertPayment( array $data): int
+    public function insertPayment(array $data): int
     {
         // Input validation
         $this->validator->validatePaymentInsert($data);
@@ -31,7 +31,7 @@ final class PaymentUpdater
         // Map form data to row
         $paymentRow = $this->mapToPaymentRow($data);
 
-        $id=$this->repository->insertPayment($paymentRow);
+        $id = $this->repository->insertPayment($paymentRow);
 
 
         return $id;
@@ -47,7 +47,6 @@ final class PaymentUpdater
 
         // Insert store
         $this->repository->updatePayment($paymentId, $storeRow);
-
     }
 
     public function deletePayment(int $paymentId, array $data): void
@@ -75,6 +74,9 @@ final class PaymentUpdater
         if (isset($data['amount'])) {
             $result['amount'] = (string)$data['amount'];
         }
+        if (isset($data['image_deposit'])) {
+            $result['image_deposit'] = (string)$data['image_deposit'];
+        }
         return $result;
-    }    
+    }
 }

@@ -60,15 +60,40 @@ final class PaymentUserDepositSubmitAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = (array)$request->getParsedBody();
-        $filse = $request->getUploadedFiles();
+
+
         $paymentId = $data['payment_id'];
-        $dataPayment['deposit'] = $data['deposit'];
-        $this->updater->updatePayment($paymentId, $dataPayment);
 
         $bookingId = $data['booking_id'];
-        $dataBooking['status'] = "WAIT_RESERVED";
-        // $this->bookingUpdater->updateBooking($bookingId, $dataBooking);
-        $booking = $this->bookingFinder->findBookingsForUser($data);
+
+        if (($_FILES['my_file']['name'] != "")) {
+            // Where the file is going to be stored
+            $file = $_FILES['my_file']['name'];
+            $path = pathinfo($file);
+            $ext = $path['extension'];
+
+            if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+                $target_dir = "../public/upload/";
+                $filename = uniqid($data['payment_id']) . "." . $ext;
+                $temp_name = $_FILES['my_file']['tmp_name'];
+                $path_filename_ext = $target_dir . $filename;
+
+                // Check if file already exists
+                if (file_exists($path_filename_ext)) {
+                    echo "Sorry, file already exists.";
+                } else {
+                    move_uploaded_file($temp_name, $path_filename_ext);
+                    echo "Congratulations! File Uploaded Successfully.";
+                }
+                $dataBooking['status'] = "WAIT_APPROVE";
+                $this->bookingUpdater->updateBooking($bookingId, $dataBooking);
+                $dataPayment['deposit'] = $data['deposit'];
+                $dataPayment['image_deposit'] = $filename;
+                $this->updater->updatePayment($paymentId, $dataPayment);
+            }
+            $booking = $this->bookingFinder->findBookingsForUser($data);
+        }
+
         $viewData = [
             'booking_id' => $booking[0]['id'],
         ];

@@ -76,6 +76,7 @@ final class BookingRepository
                 'check_out',
                 'deposit',
                 'amount',
+                'image_deposit',
             ]
         ); 
         $query->join([
@@ -110,7 +111,7 @@ final class BookingRepository
             $query->andWhere(['date_in' => $params['check_in']]);
         }
         if (isset($params["check_out"])) {
-            $query->andWhere(['date_out' => $params['check_out']]);
+            $query->andWhere(['status' => 'CHECK_IN']);
         }
         if (isset($params["startDate"])) {
             $query->andWhere(['booking_date <=' => $params['endDate'], 'booking_date >=' => $params['startDate']]);
@@ -194,6 +195,7 @@ final class BookingRepository
                 'check_out',
                 'deposit',
                 'amount',
+                'image_deposit',
             ]
         ); 
         $query->join([
