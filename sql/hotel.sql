@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2022 at 03:31 PM
+-- Generation Time: Apr 08, 2022 at 02:30 PM
 -- Server version: 8.0.28
 -- PHP Version: 8.1.3
 
@@ -34,7 +34,7 @@ CREATE TABLE `bookings` (
   `user_id` int NOT NULL,
   `room_id` int NOT NULL,
   `payment_id` int DEFAULT NULL,
-  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL','WAIT_PAY') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('RESERVED','CHECK_IN','CHECK_OUT','CANCEL','WAIT_PAY','WAIT_APPROVE') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `booking_date` date NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int NOT NULL,
@@ -70,6 +70,7 @@ CREATE TABLE `payments` (
   `id` int NOT NULL,
   `deposit` decimal(8,2) NOT NULL,
   `amount` decimal(10,2) NOT NULL,
+  `image_deposit` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
