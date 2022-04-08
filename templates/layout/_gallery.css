@@ -2,6 +2,8 @@
 
 /* flip card */
 .flip-card {
+  margin-left: auto;
+  margin-right: auto;
   background-color: transparent;
   width: 300px;
   height: 300px;

@@ -28,13 +28,15 @@
     color: #ffffff;
     margin: 0 0 10px;
     opacity: 0;
+    text-shadow: 1px 1px #000000b0;
 }
 
 .home-slider .carousel-item p {
     font-size: 30px;
     margin: 0;
-    color: #eeeeee;
+    color: #ffffff;
     opacity: 0;
+    text-shadow: 1px 1px #000000b0;
 }
 
 .home-slider .carousel-item.active h2 {
