@@ -55,6 +55,35 @@
 					</div>
 				</div>
 			{% endif %}
+			{% if checkRoom['room_type'] == "STANDARD"%}
+				<br><br>
+				<div class="d-flex justify-content-evenly">
+					<div ><img src="images/StandardRoom/Stan1.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/StandardRoom/Stan2.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/StandardRoom/Stan3.jpg" style="width:400px;hight:240px;" alt=""></div>
+				</div>
+			{% elseif checkRoom['room_type'] == "SUPEIROR"%}
+				<br><br>
+				<div class="d-flex justify-content-evenly">
+					<div ><img src="images/SuperiorRoom/Superior-Room.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/SuperiorRoom/Superior-Room-1.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/SuperiorRoom/Superior-Room1-2-3.jpg" style="width:400px;hight:240px;" alt=""></div>
+				</div>
+			{% elseif checkRoom['room_type'] == "DELUXE"%}
+				<br><br>
+				<div class="d-flex justify-content-evenly">
+					<div ><img src="images/DeluxeRoom/Deluxe1.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/DeluxeRoom/Deluxe4.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/DeluxeRoom/Deluxe3.jpg" style="width:400px;hight:240px;" alt=""></div>
+				</div>
+			{% elseif checkRoom['room_type'] == "SUITE"%}
+				<br><br>
+				<div class="d-flex justify-content-evenly">
+					<div ><img src="images/SuiteRoom/Suite1.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/SuiteRoom/Suite2.jpg" style="width:400px;hight:240px;" alt=""></div>
+            		<div ><img src="images/SuiteRoom/Suite2.jpg" style="width:400px;hight:240px;" alt=""></div>
+				</div>
+			{% endif %}
 
 			{# รายการห้องพัก  #}
 			{% if checkRoom['is_empty'] == "Y"%}
@@ -65,7 +94,7 @@
 							<table id="my-data-table" class="table table-striped table-bordered nowrap dataTable no-footer dtr-inline collapsed" style="width:100%">
 								<thead>
 									<tr>
-										<th>Images</th>
+										{# <th>Images</th> #}
 										<th>Room Number</th>
 										<th>Price</th>
 										<th>Bad Type</th>
@@ -75,7 +104,7 @@
 								<tbody>
 									{% for room in rooms %}
 										<tr>
-											<td><img src="images/{{room.image}}" alt="room" style="width:300px;height:200px;"></td>
+											{# <td><img src="upload/{{room.image}}" alt="room" style="width:300px;height:200px;"></td> #}
 											<td>{{ room.room_number }}</td>
 											<td>{{ room.room_price }}</td>
 											<td>{{ room.bed_type }}</td>
@@ -95,7 +124,9 @@
 				</div>
 			{% endif %}
 		</div>
+	</section>
 
+	
 		<!-- serch room -->
 		<div class="modal fade" id="searchDate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
@@ -173,4 +204,5 @@
 			</div>
 		</div>
 	</div>
-</section>{% endblock %}
+
+{% endblock %}

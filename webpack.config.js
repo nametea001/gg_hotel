@@ -13,7 +13,6 @@ module.exports = {
     'layout/gallery': './templates/layout/_gallery.js',
     'layout/datatables': './templates/layout/datatables.js',
     //admin
-    'web/payment': './templates/web/payment.js',
     'web/room': './templates/web/room.js',
     'web/users': './templates/web/users.js',
     'web/booking': './templates/web/booking.js',
