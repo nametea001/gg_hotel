@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2022 at 02:30 PM
+-- Generation Time: Apr 08, 2022 at 03:41 PM
 -- Server version: 8.0.28
 -- PHP Version: 8.1.3
 
@@ -89,7 +89,7 @@ CREATE TABLE `rooms` (
   `room_price` decimal(10,2) NOT NULL,
   `room_type` enum('STANDARD','SUPEIROR','DELUXE','SUITE') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `bed_type` enum('SINGLE_BEDDED','TWIN_BEDDED','DOUBLE_BEDDED','TRIPLE_BEDDED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'images/home-card-1-1.jpg',
   `created_at` datetime NOT NULL,
   `created_user_id` int NOT NULL,
   `updated_at` datetime NOT NULL,
