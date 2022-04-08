@@ -37,3 +37,32 @@ $(document).on(
         }
     }
 );
+
+// function uploadAdd(event) {
+//     let files = event.currentTarget.files;
+//     console.log(files[0]);
+
+//     var output = document.getElementById('imgPayment');
+//     output.src = URL.createObjectURL(files[0]);
+//     output.onload = function () {
+//         URL.revokeObjectURL(output.src) // free memory
+//     }
+//     document.getElementById("imgPayment").className += "display_image";
+// }
+
+
+// $(document).on(
+//     'change',
+//     '#imgUploadAdd',
+//     (event) => {
+//         let id = event.currentTarget.id;
+//         console.log("run");
+//         switch (id) {
+//             case "imgUploadAdd":
+//                 uploadAdd(event);
+//                 break;
+//             default:
+//                 console.log("no any events click");
+//         }
+//     }
+// );
