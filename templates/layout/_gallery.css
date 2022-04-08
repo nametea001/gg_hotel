@@ -106,6 +106,9 @@
   z-index: 100;
   display: none;
 }
+.popup-img .popup-item{
+  background:rgba(0, 0, 0, .9);
+}
 .popup-img span {
   position: absolute;
   top: 0;right: 10px;
